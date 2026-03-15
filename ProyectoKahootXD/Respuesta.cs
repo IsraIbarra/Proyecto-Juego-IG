@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,26 +24,46 @@ namespace ProyectoKahootXD
         
         public void getRespuestas(int idPregunta)
         {
-            MySqlConnection con = conexion.getConexion();
-            string query = "SELECT id, letra, contenido, correcta FROM opciones WHERE pregunta_id = " + idPregunta;
+            string query = "SELECT id, letra, contenido, correcta FROM opciones WHERE pregunta_id = @id";
 
-            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlCommand cmd = new MySqlCommand(query, conexion.getConexion());
+            cmd.Parameters.AddWithValue("@id", idPregunta);
+
             MySqlDataReader reader = cmd.ExecuteReader();
 
-            if(reader.Read())
+            while (reader.Read())
             {
-                respID_A = reader.GetInt32("id");
-                resp_A = reader.GetString("contenido");
-                if( reader.GetInt32("correcta") == 1)
+                string letra = reader.GetString("letra");
+
+                if (letra == "a")
+                {
+                    respID_A = reader.GetInt32("id");
+                    resp_A = reader.GetString("contenido");
+                }
+                else if (letra == "b")
+                {
+                    respID_B = reader.GetInt32("id");
+                    resp_B = reader.GetString("contenido");
+                }
+                else if (letra == "c")
+                {
+                    respID_C = reader.GetInt32("id");
+                    resp_C = reader.GetString("contenido");
+                }
+                else if (letra == "d")
+                {
+                    respID_D = reader.GetInt32("id");
+                    resp_D = reader.GetString("contenido");
+                }
+
+                if (reader.GetInt32("correcta") == 1)
                 {
                     respID_correcta = reader.GetInt32("id");
-                } //seguir aqui 
+                }
             }
 
+            reader.Close();
+            conexion.desconexion();
         }
-
-
-
-
     }
 }

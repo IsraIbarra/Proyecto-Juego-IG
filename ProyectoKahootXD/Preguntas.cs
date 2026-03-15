@@ -39,6 +39,7 @@ namespace ProyectoKahootXD
 
 
             conexion.desconexion();
+            reader.Close();
         }
     }
 }
