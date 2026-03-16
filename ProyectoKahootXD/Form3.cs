@@ -80,5 +80,25 @@ namespace ProyectoKahootXD
                     MessageBox.Show("Respuesta incorrecta");
                 }*/
         }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void axWindowsMediaPlayer2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void axWindowsMediaPlayer3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void axWindowsMediaPlayer4_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
