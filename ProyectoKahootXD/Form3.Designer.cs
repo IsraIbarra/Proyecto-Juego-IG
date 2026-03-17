@@ -36,14 +36,21 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.axWindowsMediaPlayer3 = new AxWMPLib.AxWindowsMediaPlayer();
             this.axWindowsMediaPlayer4 = new AxWMPLib.AxWindowsMediaPlayer();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).BeginInit();
+            this.axWindowsMediaPlayer3 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBoxpregunta = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxpregunta)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,9 +58,10 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.Size = new System.Drawing.Size(115, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tematica:";
             // 
@@ -61,18 +69,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 55);
+            this.label2.Location = new System.Drawing.Point(61, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 19);
+            this.label2.Size = new System.Drawing.Size(94, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Pregunta:";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(32, 101);
+            this.checkBox1.Location = new System.Drawing.Point(43, 124);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(36, 17);
+            this.checkBox1.Size = new System.Drawing.Size(42, 20);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "A)";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -81,9 +91,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(381, 101);
+            this.checkBox2.Location = new System.Drawing.Point(377, 127);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(36, 17);
+            this.checkBox2.Size = new System.Drawing.Size(42, 20);
             this.checkBox2.TabIndex = 3;
             this.checkBox2.Text = "B)";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -92,9 +103,10 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(32, 193);
+            this.checkBox3.Location = new System.Drawing.Point(43, 238);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(36, 17);
+            this.checkBox3.Size = new System.Drawing.Size(42, 20);
             this.checkBox3.TabIndex = 4;
             this.checkBox3.Text = "C)";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -103,9 +115,10 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(380, 193);
+            this.checkBox4.Location = new System.Drawing.Point(507, 238);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(37, 17);
+            this.checkBox4.Size = new System.Drawing.Size(43, 20);
             this.checkBox4.TabIndex = 5;
             this.checkBox4.Text = "D)";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -114,59 +127,134 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(679, 382);
+            this.button1.Location = new System.Drawing.Point(905, 470);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 56);
+            this.button1.Size = new System.Drawing.Size(145, 69);
             this.button1.TabIndex = 6;
             this.button1.Text = "Verificar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(32, 124);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(306, 47);
-            this.axWindowsMediaPlayer1.TabIndex = 7;
-            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
-            // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(381, 124);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(306, 47);
-            this.axWindowsMediaPlayer2.TabIndex = 8;
-            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
-            // 
-            // axWindowsMediaPlayer3
-            // 
-            this.axWindowsMediaPlayer3.Enabled = true;
-            this.axWindowsMediaPlayer3.Location = new System.Drawing.Point(32, 216);
-            this.axWindowsMediaPlayer3.Name = "axWindowsMediaPlayer3";
-            this.axWindowsMediaPlayer3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer3.OcxState")));
-            this.axWindowsMediaPlayer3.Size = new System.Drawing.Size(306, 47);
-            this.axWindowsMediaPlayer3.TabIndex = 9;
-            this.axWindowsMediaPlayer3.Enter += new System.EventHandler(this.axWindowsMediaPlayer3_Enter);
-            // 
             // axWindowsMediaPlayer4
             // 
             this.axWindowsMediaPlayer4.Enabled = true;
-            this.axWindowsMediaPlayer4.Location = new System.Drawing.Point(380, 217);
+            this.axWindowsMediaPlayer4.Location = new System.Drawing.Point(381, 239);
+            this.axWindowsMediaPlayer4.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer4.Name = "axWindowsMediaPlayer4";
             this.axWindowsMediaPlayer4.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer4.OcxState")));
             this.axWindowsMediaPlayer4.Size = new System.Drawing.Size(306, 46);
             this.axWindowsMediaPlayer4.TabIndex = 10;
+            this.axWindowsMediaPlayer4.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer4_ClickEvent);
             this.axWindowsMediaPlayer4.Enter += new System.EventHandler(this.axWindowsMediaPlayer4_Enter);
+            // 
+            // axWindowsMediaPlayer3
+            // 
+            this.axWindowsMediaPlayer3.Enabled = true;
+            this.axWindowsMediaPlayer3.Location = new System.Drawing.Point(32, 238);
+            this.axWindowsMediaPlayer3.Margin = new System.Windows.Forms.Padding(4);
+            this.axWindowsMediaPlayer3.Name = "axWindowsMediaPlayer3";
+            this.axWindowsMediaPlayer3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer3.OcxState")));
+            this.axWindowsMediaPlayer3.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer3.TabIndex = 9;
+            this.axWindowsMediaPlayer3.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer3_ClickEvent);
+            this.axWindowsMediaPlayer3.Enter += new System.EventHandler(this.axWindowsMediaPlayer3_Enter);
+            // 
+            // axWindowsMediaPlayer2
+            // 
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(381, 152);
+            this.axWindowsMediaPlayer2.Margin = new System.Windows.Forms.Padding(4);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer2.TabIndex = 8;
+            this.axWindowsMediaPlayer2.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer2_ClickEvent);
+            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(32, 152);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(4);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer1.TabIndex = 7;
+            this.axWindowsMediaPlayer1.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer1_ClickEvent);
+            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(162, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 32);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "label3";
+            // 
+            // pictureBoxpregunta
+            // 
+            this.pictureBoxpregunta.Location = new System.Drawing.Point(895, 42);
+            this.pictureBoxpregunta.Name = "pictureBoxpregunta";
+            this.pictureBoxpregunta.Size = new System.Drawing.Size(110, 78);
+            this.pictureBoxpregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxpregunta.TabIndex = 12;
+            this.pictureBoxpregunta.TabStop = false;
+            this.pictureBoxpregunta.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(92, 121);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(426, 124);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(92, 208);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(426, 209);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBoxpregunta);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.axWindowsMediaPlayer4);
             this.Controls.Add(this.axWindowsMediaPlayer3);
             this.Controls.Add(this.axWindowsMediaPlayer2);
@@ -178,12 +266,15 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
             this.Text = "Form3";
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).EndInit();
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxpregunta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +293,11 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer3;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBoxpregunta;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

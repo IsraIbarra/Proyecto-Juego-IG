@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace ProyectoKahootXD
 {
-    internal class Respuesta
+    public class Respuesta
     {
-        string resp_A = "";
-        int respID_A = 0;
-        string resp_B = "";
-        int respID_B = 0;
-        string resp_C = "";
-        int respID_C = 0;
-        string resp_D = "";
-        int respID_D = 0;
-        int respID_correcta = 0;
+        public string resp_A = "";
+        public int respID_A = 0;
+        public string resp_B = "";
+        public int respID_B = 0;
+        public string resp_C = "";
+        public int respID_C = 0;
+        public string resp_D = "";
+        public int respID_D = 0;
+        public int respID_correcta = 0;
 
         Conexion conexion = new Conexion();
-        
+
         public void getRespuestas(int idPregunta)
         {
             string query = "SELECT id, letra, contenido, correcta FROM opciones WHERE pregunta_id = @id";
