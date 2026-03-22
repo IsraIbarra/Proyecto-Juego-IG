@@ -81,6 +81,9 @@ namespace ProyectoKahootXD
             }
         }
 
-        
+        private void btnOpcionB_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
