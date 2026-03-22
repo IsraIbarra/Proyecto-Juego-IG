@@ -91,29 +91,17 @@ namespace ProyectoKahootXD
                 }*/
         }
 
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void axWindowsMediaPlayer4_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            axWindowsMediaPlayer1.settings.autoStart = false;
+            axWindowsMediaPlayer2.settings.autoStart = false;
+            axWindowsMediaPlayer3.settings.autoStart = false;
+            axWindowsMediaPlayer4.settings.autoStart = false;
+
+            //texto de la pregunta
             label3.Text = pregunta.enunPrin;
+            //las respuestas
             string a = asset.soundLoader(respuestas.resp_A);
             string b = asset.soundLoader(respuestas.resp_B);
             string c = asset.soundLoader(respuestas.resp_C);
@@ -122,72 +110,41 @@ namespace ProyectoKahootXD
             axWindowsMediaPlayer2.URL = b;
             axWindowsMediaPlayer3.URL = c;
             axWindowsMediaPlayer4.URL = d;
-            axWindowsMediaPlayer1.settings.autoStart = false;
-            axWindowsMediaPlayer2.settings.autoStart = false;
-            axWindowsMediaPlayer3.settings.autoStart = false;
-            axWindowsMediaPlayer4.settings.autoStart = false;
-            axWindowsMediaPlayer1.uiMode = "none";
-            axWindowsMediaPlayer2.uiMode = "none";
-            axWindowsMediaPlayer3.uiMode = "none";
-            axWindowsMediaPlayer4.uiMode = "none";
 
+            //pregunta de cine especial
             if (pregunta.idPrin == 59)
             {
-                string nombre = "cinAux1.jpeg";
-                string rutaimg = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
-                @"..\..\..\Recursos\Imagenes\", nombre
-            );
+                
+                string nombre = "cinAux1.jpeg"; string rutaimg = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,@"..\..\..\Recursos\Imagenes\", nombre);
                 pictureBoxpregunta.Visible = true;
 
                 pictureBoxpregunta.Image = Image.FromFile(rutaimg);
-                   
+                pictureBoxpregunta.Left = label3.Right + 5;
+                pictureBoxpregunta.Top = label3.Top;
+
+
+
             }
         }
 
         private void axWindowsMediaPlayer1_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            axWindowsMediaPlayer1.Ctlcontrols.play();
+           
         }
 
         private void axWindowsMediaPlayer2_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            axWindowsMediaPlayer2.Ctlcontrols.play();
+
         }
 
         private void axWindowsMediaPlayer3_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            axWindowsMediaPlayer3.Ctlcontrols.play();
+
         }
 
         private void axWindowsMediaPlayer4_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            axWindowsMediaPlayer4.Ctlcontrols.play();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer2.Ctlcontrols.stop();
-            axWindowsMediaPlayer2.Ctlcontrols.play();
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer3.Ctlcontrols.stop();
-            axWindowsMediaPlayer3.Ctlcontrols.play();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer4.Ctlcontrols.stop();
-            axWindowsMediaPlayer4.Ctlcontrols.play();
+            
         }
     }
 }
