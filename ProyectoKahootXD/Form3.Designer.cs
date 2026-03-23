@@ -1,4 +1,6 @@
-﻿namespace ProyectoKahootXD
+﻿using System;
+
+namespace ProyectoKahootXD
 {
     partial class Form3
     {
@@ -240,6 +242,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void pictureBoxpregunta_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
