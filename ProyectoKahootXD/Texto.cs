@@ -152,9 +152,10 @@ namespace ProyectoKahootXD
                 btnVerificar.Hide();
                 btnSiguiente.Show();
             }
-        private void btnOpcionB_Click(object sender, EventArgs e)
+        }
+        /*private void btnOpcionB_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
     }
 }

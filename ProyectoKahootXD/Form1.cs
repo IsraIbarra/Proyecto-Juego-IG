@@ -178,6 +178,8 @@ namespace ProyectoKahootXD
                 this.Hide();
             }
         }
+
+
     }
 }
 
