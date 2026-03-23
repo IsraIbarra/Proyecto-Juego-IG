@@ -22,5 +22,10 @@ namespace ProyectoKahootXD
             Form2 formularioSecundario = new Form2();
             formularioSecundario.Show();
     }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

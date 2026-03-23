@@ -185,14 +185,15 @@
             // 
             // pictureBoxpregunta
             // 
-            this.pictureBoxpregunta.Location = new System.Drawing.Point(619, 163);
-            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxpregunta.Location = new System.Drawing.Point(554, 13);
+            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxpregunta.Name = "pictureBoxpregunta";
             this.pictureBoxpregunta.Size = new System.Drawing.Size(133, 106);
             this.pictureBoxpregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxpregunta.TabIndex = 12;
             this.pictureBoxpregunta.TabStop = false;
             this.pictureBoxpregunta.Visible = false;
+            this.pictureBoxpregunta.Click += new System.EventHandler(this.pictureBoxpregunta_Click);
             // 
             // Form3
             // 

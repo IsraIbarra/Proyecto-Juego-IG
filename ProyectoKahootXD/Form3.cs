@@ -146,5 +146,10 @@ namespace ProyectoKahootXD
         {
             
         }
+
+        private void pictureBoxpregunta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
