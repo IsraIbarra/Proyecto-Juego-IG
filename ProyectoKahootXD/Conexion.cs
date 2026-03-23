@@ -15,7 +15,7 @@ namespace ProyectoKahootXD
         private string server = "localhost";
         private string database = "trivia";
         private string user = "root";
-        private string password = "luismiguel";
+        private string password = "root";
         private string cadenaConexion;
         
     
@@ -30,12 +30,8 @@ namespace ProyectoKahootXD
      
     public MySqlConnection getConexion()
         {
-            if( conexion == null)
-            {
-                conexion = new MySqlConnection(cadenaConexion);
-                conexion.Open();
-            }
-
+            conexion = new MySqlConnection(cadenaConexion);
+            conexion.Open();
             return conexion;
         }
 
