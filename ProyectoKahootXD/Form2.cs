@@ -20,7 +20,8 @@ namespace ProyectoKahootXD
         {
             InitializeComponent();
         }
-
+        int contador = 1;
+        int respCorr = 1;
         private void button_Historia_Click(object sender, EventArgs e)
         {
             Preguntas pregunta = new Preguntas();
@@ -28,20 +29,21 @@ namespace ProyectoKahootXD
 
             pregunta.getpregunta(1);
             respuestas.getRespuestas(pregunta.idPrin);
+
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta,respuestas);
+                    Texto texto = new Texto(pregunta,respuestas, contador,respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta,respuestas);
+                    Form1 imagen = new Form1(pregunta,respuestas,contador,respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta,respuestas);
+                    Form3 audio = new Form3(pregunta,respuestas,contador,respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -54,23 +56,23 @@ namespace ProyectoKahootXD
         {
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
-
+           
             pregunta.getpregunta(2);
             respuestas.getRespuestas(pregunta.idPrin);
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas, contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -89,17 +91,17 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas, contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -123,17 +125,17 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas, contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -152,17 +154,17 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas,contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -181,17 +183,17 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas, contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -209,17 +211,17 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto texto = new Texto(pregunta, respuestas);
+                    Texto texto = new Texto(pregunta, respuestas, contador, respCorr);
                     texto.Show();
                     this.Hide();
                     break;
                 case "Imagen":
-                    Form1 imagen = new Form1(pregunta, respuestas);
+                    Form1 imagen = new Form1(pregunta, respuestas, contador, respCorr);
                     imagen.Show();
                     this.Hide();
                     break;
                 case "Audio":
-                    Form3 audio = new Form3(pregunta, respuestas);
+                    Form3 audio = new Form3(pregunta, respuestas, contador, respCorr);
                     audio.Show();
                     this.Hide();
                     break;
@@ -228,6 +230,11 @@ namespace ProyectoKahootXD
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

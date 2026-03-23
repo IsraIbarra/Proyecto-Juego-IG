@@ -35,6 +35,7 @@
             this.btnOpcionC = new System.Windows.Forms.Button();
             this.btnOpcionD = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnVerificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNumero
@@ -67,6 +68,17 @@
             this.btnOpcionA.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionA.TabIndex = 2;
             this.btnOpcionA.Text = "button1";
+            this.btnOpcionA.UseVisualStyleBackColor = true;
+            this.btnOpcionA.Click += new System.EventHandler(this.btnOpcionA_Click);
+            // 
+            // btnOpcionB
+            // 
+            this.btnOpcionB.Location = new System.Drawing.Point(184, 281);
+            this.btnOpcionB.Name = "btnOpcionB";
+            this.btnOpcionB.Size = new System.Drawing.Size(157, 73);
+            this.btnOpcionB.TabIndex = 3;
+            this.btnOpcionB.Text = "button1";
+            this.btnOpcionB.UseVisualStyleBackColor = true;
             this.btnOpcionA.UseVisualStyleBackColor = false;
             // 
             // btnOpcionB
@@ -92,6 +104,8 @@
             this.btnOpcionC.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionC.TabIndex = 4;
             this.btnOpcionC.Text = "button1";
+            this.btnOpcionC.UseVisualStyleBackColor = true;
+            this.btnOpcionC.Click += new System.EventHandler(this.btnOpcionC_Click);
             this.btnOpcionC.UseVisualStyleBackColor = false;
             // 
             // btnOpcionD
@@ -104,6 +118,8 @@
             this.btnOpcionD.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionD.TabIndex = 5;
             this.btnOpcionD.Text = "button1";
+            this.btnOpcionD.UseVisualStyleBackColor = true;
+            this.btnOpcionD.Click += new System.EventHandler(this.btnOpcionD_Click);
             this.btnOpcionD.UseVisualStyleBackColor = false;
             // 
             // btnSiguiente
@@ -114,8 +130,20 @@
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(109, 56);
             this.btnSiguiente.TabIndex = 6;
+            this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.Text = "Verificar";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // btnVerificar
+            // 
+            this.btnVerificar.Location = new System.Drawing.Point(613, 374);
+            this.btnVerificar.Name = "btnVerificar";
+            this.btnVerificar.Size = new System.Drawing.Size(175, 73);
+            this.btnVerificar.TabIndex = 7;
+            this.btnVerificar.Text = "Verificar";
+            this.btnVerificar.UseVisualStyleBackColor = true;
+            this.btnVerificar.Click += new System.EventHandler(this.btnVerificar_Click);
             // 
             // Texto
             // 
@@ -123,6 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVerificar);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnOpcionD);
             this.Controls.Add(this.btnOpcionC);
@@ -148,5 +177,6 @@
         private System.Windows.Forms.Button btnOpcionC;
         private System.Windows.Forms.Button btnOpcionD;
         private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnVerificar;
     }
 }

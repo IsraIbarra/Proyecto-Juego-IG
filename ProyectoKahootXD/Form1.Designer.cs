@@ -41,6 +41,7 @@
             this.pictureBoxD = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.botonSig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
@@ -50,6 +51,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(17, 164);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.ForeColor = System.Drawing.Color.White;
             this.checkBox1.Location = new System.Drawing.Point(13, 133);
             this.checkBox1.Name = "checkBox1";
@@ -62,6 +65,8 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(252, 164);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.ForeColor = System.Drawing.Color.White;
             this.checkBox2.Location = new System.Drawing.Point(189, 133);
             this.checkBox2.Name = "checkBox2";
@@ -74,6 +79,8 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(504, 164);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.ForeColor = System.Drawing.Color.White;
             this.checkBox3.Location = new System.Drawing.Point(378, 133);
             this.checkBox3.Name = "checkBox3";
@@ -86,6 +93,8 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(779, 164);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.ForeColor = System.Drawing.Color.White;
             this.checkBox4.Location = new System.Drawing.Point(584, 133);
             this.checkBox4.Name = "checkBox4";
@@ -121,6 +130,8 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(907, 471);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Location = new System.Drawing.Point(680, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 55);
@@ -131,6 +142,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Location = new System.Drawing.Point(17, 236);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Location = new System.Drawing.Point(13, 192);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(158, 108);
@@ -140,6 +153,8 @@
             // 
             // pictureBoxB
             // 
+            this.pictureBoxB.Location = new System.Drawing.Point(252, 236);
+            this.pictureBoxB.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxB.Location = new System.Drawing.Point(189, 192);
             this.pictureBoxB.Name = "pictureBoxB";
             this.pictureBoxB.Size = new System.Drawing.Size(163, 108);
@@ -148,6 +163,8 @@
             // 
             // pictureBoxC
             // 
+            this.pictureBoxC.Location = new System.Drawing.Point(504, 236);
+            this.pictureBoxC.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxC.Location = new System.Drawing.Point(378, 192);
             this.pictureBoxC.Name = "pictureBoxC";
             this.pictureBoxC.Size = new System.Drawing.Size(170, 108);
@@ -156,6 +173,8 @@
             // 
             // pictureBoxD
             // 
+            this.pictureBoxD.Location = new System.Drawing.Point(779, 236);
+            this.pictureBoxD.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxD.Location = new System.Drawing.Point(584, 192);
             this.pictureBoxD.Name = "pictureBoxD";
             this.pictureBoxD.Size = new System.Drawing.Size(181, 108);
@@ -185,10 +204,24 @@
             this.label4.Text = "label4";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // botonSig
+            // 
+            this.botonSig.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonSig.Location = new System.Drawing.Point(907, 471);
+            this.botonSig.Margin = new System.Windows.Forms.Padding(4);
+            this.botonSig.Name = "botonSig";
+            this.botonSig.Size = new System.Drawing.Size(144, 68);
+            this.botonSig.TabIndex = 13;
+            this.botonSig.Text = "Siguiente";
+            this.botonSig.UseVisualStyleBackColor = true;
+            this.botonSig.Click += new System.EventHandler(this.botonSig_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.botonSig);
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label4);
@@ -204,6 +237,7 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Kah00t";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -231,6 +265,7 @@
         private System.Windows.Forms.PictureBox pictureBoxD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button botonSig;
     }
 }
 

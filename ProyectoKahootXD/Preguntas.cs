@@ -10,6 +10,7 @@ namespace ProyectoKahootXD
 {
     public class Preguntas
     {
+        public int catPrin = 0;
         public int numPrin = 0;
         public string enunPrin = "";
         public string tipoPrin = "";
@@ -22,7 +23,8 @@ namespace ProyectoKahootXD
 
             MySqlConnection con = conexion.getConexion();
 
-            string query = "SELECT numero_pregunta, id, enunciado, tipo_respuesta From preguntas WHERE categoria_id = " + categoria.ToString() + " ORDER BY rand() LIMIT 1;";
+
+            string query = "SELECT  categoria_id,numero_pregunta, id, enunciado, tipo_respuesta From preguntas WHERE categoria_id = " + categoria.ToString() + " ORDER BY rand() LIMIT 1;";
 
             MySqlCommand cmd = new MySqlCommand(query, con);
 
@@ -31,6 +33,7 @@ namespace ProyectoKahootXD
 
             if (reader.Read())
             {
+                catPrin = reader.GetInt32("categoria_id");
                 numPrin = reader.GetInt32("numero_pregunta");
                 idPrin = reader.GetInt32("id");
                 enunPrin = reader.GetString("enunciado");
@@ -38,8 +41,9 @@ namespace ProyectoKahootXD
             }
 
 
-            conexion.desconexion();
+            
             reader.Close();
+            con.Close();
         }
     }
 }
