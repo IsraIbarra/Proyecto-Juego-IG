@@ -12,9 +12,11 @@ namespace ProyectoKahootXD
 {
     public partial class Form4 : Form
     {
-        public Form4()
+        int respCorr = 0;
+        public Form4(int respb)
         {
             InitializeComponent();
+            this.respCorr = respb;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,5 +24,10 @@ namespace ProyectoKahootXD
             Form2 formularioSecundario = new Form2();
             formularioSecundario.Show();
     }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            labelRes.Text = respCorr.ToString();
+        }
     }
 }

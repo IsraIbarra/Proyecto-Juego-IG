@@ -30,12 +30,8 @@ namespace ProyectoKahootXD
      
     public MySqlConnection getConexion()
         {
-            if( conexion == null)
-            {
-                conexion = new MySqlConnection(cadenaConexion);
-                conexion.Open();
-            }
-
+            conexion = new MySqlConnection(cadenaConexion);
+            conexion.Open();
             return conexion;
         }
 

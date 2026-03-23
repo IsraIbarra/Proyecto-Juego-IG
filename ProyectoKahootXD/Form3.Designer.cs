@@ -42,6 +42,7 @@
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBoxpregunta = new System.Windows.Forms.PictureBox();
+            this.botonSig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
@@ -194,10 +195,24 @@
             this.pictureBoxpregunta.TabStop = false;
             this.pictureBoxpregunta.Visible = false;
             // 
+            // botonSig
+            // 
+            this.botonSig.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonSig.Location = new System.Drawing.Point(905, 472);
+            this.botonSig.Margin = new System.Windows.Forms.Padding(4);
+            this.botonSig.Name = "botonSig";
+            this.botonSig.Size = new System.Drawing.Size(145, 69);
+            this.botonSig.TabIndex = 13;
+            this.botonSig.Text = "Siguiente";
+            this.botonSig.UseVisualStyleBackColor = true;
+            this.botonSig.Click += new System.EventHandler(this.botonSig_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.botonSig);
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBoxpregunta);
@@ -241,5 +256,6 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBoxpregunta;
+        private System.Windows.Forms.Button botonSig;
     }
 }
