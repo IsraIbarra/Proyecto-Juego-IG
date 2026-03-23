@@ -80,7 +80,7 @@ namespace ProyectoKahootXD
             if (checkBox1.Checked == false && checkBox2.Checked == false && checkBox3.Checked == false && checkBox4.Checked == false)
             {
                 MessageBox.Show("Debe seleccionar una respuesta");
-            }
+            }else 
             if (checkbox_id == respuestas.respID_correcta)
             {
                 MessageBox.Show("Respuesta Correcta", "Siguiente", MessageBoxButtons.OK);

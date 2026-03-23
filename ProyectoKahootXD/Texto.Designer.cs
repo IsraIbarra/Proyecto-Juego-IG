@@ -92,7 +92,6 @@
             this.btnOpcionB.TabIndex = 3;
             this.btnOpcionB.Text = "button1";
             this.btnOpcionB.UseVisualStyleBackColor = false;
-            this.btnOpcionB.Click += new System.EventHandler(this.btnOpcionB_Click);
             // 
             // btnOpcionC
             // 

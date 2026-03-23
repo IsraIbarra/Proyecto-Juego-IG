@@ -135,7 +135,7 @@ namespace ProyectoKahootXD
             if (idResp == 0)
             {
                 MessageBox.Show("Debe seleccionar una respuesta");
-            }
+            } else
             if (idResp == objetoRespuesta.respID_correcta)
             {
                 MessageBox.Show("Respuesta Correcta", "Siguiente", MessageBoxButtons.OK);
@@ -153,9 +153,5 @@ namespace ProyectoKahootXD
                 btnSiguiente.Show();
             }
         }
-        /*private void btnOpcionB_Click(object sender, EventArgs e)
-        {
-
-        }*/
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ProyectoKahootXD
+﻿using System;
+
+namespace ProyectoKahootXD
 {
     partial class Form3
     {
@@ -196,14 +198,15 @@
             // 
             // pictureBoxpregunta
             // 
-            this.pictureBoxpregunta.Location = new System.Drawing.Point(825, 201);
-            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxpregunta.Location = new System.Drawing.Point(619, 163);
+            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxpregunta.Name = "pictureBoxpregunta";
             this.pictureBoxpregunta.Size = new System.Drawing.Size(177, 130);
             this.pictureBoxpregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxpregunta.TabIndex = 12;
             this.pictureBoxpregunta.TabStop = false;
             this.pictureBoxpregunta.Visible = false;
+            this.pictureBoxpregunta.Click += new System.EventHandler(this.pictureBoxpregunta_Click);
             // 
             // botonSig
             // 
@@ -249,6 +252,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void pictureBoxpregunta_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
