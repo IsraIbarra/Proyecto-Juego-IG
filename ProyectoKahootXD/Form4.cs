@@ -23,11 +23,20 @@ namespace ProyectoKahootXD
         {
             Form2 formularioSecundario = new Form2();
             formularioSecundario.Show();
-    }
+            Form4 frm= new Form4(respCorr);
+            
+        }
 
         private void Form4_Load(object sender, EventArgs e)
         {
             labelRes.Text = respCorr.ToString();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form2 formularioSecundario = new Form2();
+            formularioSecundario.Show();
+            Form4 frm = new Form4(respCorr);
         }
     }
 }
