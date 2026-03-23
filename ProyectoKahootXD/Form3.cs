@@ -90,24 +90,25 @@ namespace ProyectoKahootXD
             {
                 MessageBox.Show("Debe seleccionar una respuesta");
             }
-            if(checkbox_id == respuestas.respID_correcta)
-            {
-                MessageBox.Show("Respuesta Correcta", "Siguiente",MessageBoxButtons.OK);
-                //agregar aqui la ID a un arreglo de visitados en la cs de preguntas 
-                button1.Hide();
-                botonSig.Show();
-                respCorr++;
-            }
             else
             {
-                MessageBox.Show("Respuesta Incorrecta", "Siguiente", MessageBoxButtons.OK);
-                //agregar aqui la ID a un arreglo de visitados en la cs de preguntas 
-                button1.Hide();
-                botonSig.Show();
+
+                if (checkbox_id == respuestas.respID_correcta)
+                {
+                    MessageBox.Show("Respuesta Correcta", "Siguiente", MessageBoxButtons.OK);
+                    //agregar aqui la ID a un arreglo de visitados en la cs de preguntas 
+                    button1.Hide();
+                    botonSig.Show();
+                    respCorr++;
+                }
+                else
+                {
+                    MessageBox.Show("Respuesta Incorrecta", "Siguiente", MessageBoxButtons.OK);
+                    //agregar aqui la ID a un arreglo de visitados en la cs de preguntas 
+                    button1.Hide();
+                    botonSig.Show();
+                }
             }
-
-
-            
         }
 
 
