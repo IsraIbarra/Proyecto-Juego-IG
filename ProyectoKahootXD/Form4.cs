@@ -18,6 +18,7 @@ namespace ProyectoKahootXD
         {
             InitializeComponent();
             this.respCorr = respb;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
