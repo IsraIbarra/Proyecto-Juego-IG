@@ -14,7 +14,22 @@ namespace ProyectoKahootXD
     {
         public Image imagenLoader(string nombreArch)
         {
-            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,@"..\..\..\Recursos\Imagenes\",nombreArch);
+            string proyectoRaiz = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"));
+            string ruta = Path.Combine(proyectoRaiz, "Recursos", "Imagenes", nombreArch);
+
+            if (!File.Exists(ruta))
+            {
+                proyectoRaiz = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\"));
+                ruta = Path.Combine(proyectoRaiz, "Recursos", "Imagenes", nombreArch);
+            }
+
+            if (!File.Exists(ruta))
+            {
+                MessageBox.Show("¡No encuentro la imagen!\n\nLa busqué aquí:\n" + ruta +
+                                "\n\nRevisa que la carpeta 'Recursos' esté en ese lugar.", "Error de Ruta");
+                return null;
+            }
+
             return Image.FromFile(ruta);
         }
 
@@ -22,7 +37,7 @@ namespace ProyectoKahootXD
         {
             string ruta = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
-                @"..\..\..\Recursos\Audios",
+                @"..\..\Recursos\Audios",
                 nombreArch
             );
 
