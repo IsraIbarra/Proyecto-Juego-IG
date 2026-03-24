@@ -18,6 +18,7 @@ namespace ProyectoKahootXD
 
        
         public static List<int> preguntasRealizadas = new List<int>();
+        public static string categoriaJugada = "";
 
         Conexion conexion = new Conexion();
 

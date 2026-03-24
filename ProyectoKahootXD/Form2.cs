@@ -25,6 +25,7 @@ namespace ProyectoKahootXD
         private void button_Historia_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Historia";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 
@@ -56,6 +57,7 @@ namespace ProyectoKahootXD
         private void button_Musica_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Música";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
            
@@ -86,6 +88,7 @@ namespace ProyectoKahootXD
         private void button_Computacion_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Computación";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 
@@ -121,6 +124,7 @@ namespace ProyectoKahootXD
         private void button_Deportes_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Deportes";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 
@@ -151,6 +155,7 @@ namespace ProyectoKahootXD
         private void button_Ciencia_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Ciencia";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 
@@ -181,6 +186,7 @@ namespace ProyectoKahootXD
         private void button_Cine_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Cine";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 
@@ -210,6 +216,7 @@ namespace ProyectoKahootXD
         private void button_Geografia_Click(object sender, EventArgs e)
         {
             Preguntas.preguntasRealizadas.Clear();
+            Preguntas.categoriaJugada = "Geografía";
             Preguntas pregunta = new Preguntas();
             Respuesta respuestas = new Respuesta();
 

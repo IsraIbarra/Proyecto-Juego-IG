@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,10 +22,7 @@ namespace ProyectoKahootXD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 formularioSecundario = new Form2();
-            formularioSecundario.Show();
-            Form4 frm= new Form4(respCorr);
-            
+            pictureBox1_Click(sender, e);
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -34,9 +32,22 @@ namespace ProyectoKahootXD
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            int incorrectas = 12 - respCorr;
+            string detalle = $"Jugador: Player1 | Categoría: {Preguntas.categoriaJugada} | Correctas: {respCorr} | Incorrectas: {incorrectas}";
+
+            Conexion conexion = new Conexion();
+            MySqlConnection con = conexion.getConexion();
+            string query = "INSERT INTO historial (detalle_partida) VALUES (@detalle)";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@detalle", detalle);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
             Form2 formularioSecundario = new Form2();
             formularioSecundario.Show();
-            Form4 frm = new Form4(respCorr);
+
+            this.Close(); 
         }
     }
 }
