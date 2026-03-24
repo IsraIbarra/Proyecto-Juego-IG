@@ -37,7 +37,7 @@ namespace ProyectoKahootXD
         {
             string ruta = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
-                @"..\..\Recursos\Audios",
+                @"..\..\..\Recursos\Audios",
                 nombreArch
             );
 
