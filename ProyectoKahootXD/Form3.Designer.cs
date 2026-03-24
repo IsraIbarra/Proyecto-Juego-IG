@@ -31,57 +31,33 @@ namespace ProyectoKahootXD
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer4 = new AxWMPLib.AxWindowsMediaPlayer();
             this.axWindowsMediaPlayer3 = new AxWMPLib.AxWindowsMediaPlayer();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBoxpregunta = new System.Windows.Forms.PictureBox();
-            this.botonSig = new System.Windows.Forms.Button();
+            this.pbEncabezado = new System.Windows.Forms.PictureBox();
+            this.pbSiguiente = new System.Windows.Forms.PictureBox();
+            this.pbVerificar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxpregunta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEncabezado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSiguiente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVerificar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tematica:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(61, 68);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Pregunta:";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(43, 145);
+            this.checkBox1.Location = new System.Drawing.Point(13, 216);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(42, 20);
@@ -94,7 +70,7 @@ namespace ProyectoKahootXD
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(508, 145);
+            this.checkBox2.Location = new System.Drawing.Point(634, 216);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(42, 20);
@@ -107,7 +83,7 @@ namespace ProyectoKahootXD
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(43, 367);
+            this.checkBox3.Location = new System.Drawing.Point(12, 359);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(42, 20);
@@ -120,7 +96,7 @@ namespace ProyectoKahootXD
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(508, 367);
+            this.checkBox4.Location = new System.Drawing.Point(633, 359);
             this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(43, 20);
@@ -129,96 +105,87 @@ namespace ProyectoKahootXD
             this.checkBox4.UseVisualStyleBackColor = true;
             this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(909, 472);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 69);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Verificar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // axWindowsMediaPlayer4
             // 
             this.axWindowsMediaPlayer4.Enabled = true;
-            this.axWindowsMediaPlayer4.Location = new System.Drawing.Point(381, 321);
+            this.axWindowsMediaPlayer4.Location = new System.Drawing.Point(462, 319);
             this.axWindowsMediaPlayer4.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer4.Name = "axWindowsMediaPlayer4";
             this.axWindowsMediaPlayer4.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer4.OcxState")));
-            this.axWindowsMediaPlayer4.Size = new System.Drawing.Size(306, 46);
+            this.axWindowsMediaPlayer4.Size = new System.Drawing.Size(214, 50);
             this.axWindowsMediaPlayer4.TabIndex = 10;
             this.axWindowsMediaPlayer4.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer4_ClickEvent);
             // 
             // axWindowsMediaPlayer3
             // 
             this.axWindowsMediaPlayer3.Enabled = true;
-            this.axWindowsMediaPlayer3.Location = new System.Drawing.Point(32, 321);
+            this.axWindowsMediaPlayer3.Location = new System.Drawing.Point(12, 319);
             this.axWindowsMediaPlayer3.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer3.Name = "axWindowsMediaPlayer3";
             this.axWindowsMediaPlayer3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer3.OcxState")));
-            this.axWindowsMediaPlayer3.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer3.Size = new System.Drawing.Size(214, 50);
             this.axWindowsMediaPlayer3.TabIndex = 9;
             this.axWindowsMediaPlayer3.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer3_ClickEvent);
             // 
             // axWindowsMediaPlayer2
             // 
             this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(381, 152);
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(462, 216);
             this.axWindowsMediaPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(214, 50);
             this.axWindowsMediaPlayer2.TabIndex = 8;
             this.axWindowsMediaPlayer2.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer2_ClickEvent);
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(32, 152);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 216);
             this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(306, 47);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(214, 50);
             this.axWindowsMediaPlayer1.TabIndex = 7;
             this.axWindowsMediaPlayer1.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.axWindowsMediaPlayer1_ClickEvent);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(163, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 32);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
-            // 
             // pictureBoxpregunta
             // 
-            this.pictureBoxpregunta.Location = new System.Drawing.Point(619, 163);
-            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxpregunta.Location = new System.Drawing.Point(922, 154);
+            this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxpregunta.Name = "pictureBoxpregunta";
-            this.pictureBoxpregunta.Size = new System.Drawing.Size(177, 130);
+            this.pictureBoxpregunta.Size = new System.Drawing.Size(113, 95);
             this.pictureBoxpregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxpregunta.TabIndex = 12;
             this.pictureBoxpregunta.TabStop = false;
             this.pictureBoxpregunta.Visible = false;
             this.pictureBoxpregunta.Click += new System.EventHandler(this.pictureBoxpregunta_Click);
             // 
-            // botonSig
+            // pbEncabezado
             // 
-            this.botonSig.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botonSig.Location = new System.Drawing.Point(909, 472);
-            this.botonSig.Margin = new System.Windows.Forms.Padding(4);
-            this.botonSig.Name = "botonSig";
-            this.botonSig.Size = new System.Drawing.Size(145, 69);
-            this.botonSig.TabIndex = 14;
-            this.botonSig.Text = "Siguiente";
-            this.botonSig.UseVisualStyleBackColor = true;
-            this.botonSig.Click += new System.EventHandler(this.botonSig_Click);
+            this.pbEncabezado.Location = new System.Drawing.Point(12, 12);
+            this.pbEncabezado.Name = "pbEncabezado";
+            this.pbEncabezado.Size = new System.Drawing.Size(1023, 126);
+            this.pbEncabezado.TabIndex = 15;
+            this.pbEncabezado.TabStop = false;
+            // 
+            // pbSiguiente
+            // 
+            this.pbSiguiente.Location = new System.Drawing.Point(905, 472);
+            this.pbSiguiente.Name = "pbSiguiente";
+            this.pbSiguiente.Size = new System.Drawing.Size(150, 70);
+            this.pbSiguiente.TabIndex = 16;
+            this.pbSiguiente.TabStop = false;
+            this.pbSiguiente.Click += new System.EventHandler(this.pbSiguiente_Click);
+            // 
+            // pbVerificar
+            // 
+            this.pbVerificar.Location = new System.Drawing.Point(905, 472);
+            this.pbVerificar.Name = "pbVerificar";
+            this.pbVerificar.Size = new System.Drawing.Size(150, 70);
+            this.pbVerificar.TabIndex = 17;
+            this.pbVerificar.TabStop = false;
+            this.pbVerificar.Click += new System.EventHandler(this.pbVerificar_Click);
             // 
             // Form3
             // 
@@ -226,20 +193,18 @@ namespace ProyectoKahootXD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.botonSig);
-            this.Controls.Add(this.pictureBoxpregunta);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.axWindowsMediaPlayer4);
-            this.Controls.Add(this.axWindowsMediaPlayer3);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.axWindowsMediaPlayer4);
             this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.axWindowsMediaPlayer3);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.axWindowsMediaPlayer2);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.pbVerificar);
+            this.Controls.Add(this.pbSiguiente);
+            this.Controls.Add(this.pbEncabezado);
+            this.Controls.Add(this.pictureBoxpregunta);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
             this.Text = "Kah00t";
@@ -249,6 +214,9 @@ namespace ProyectoKahootXD
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxpregunta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEncabezado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSiguiente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVerificar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,21 +228,18 @@ namespace ProyectoKahootXD
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Button button1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer3;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBoxpregunta;
         private System.Windows.Forms.Button botonsigolx;
-        private System.Windows.Forms.Button botonSig;
+        private System.Windows.Forms.PictureBox pbEncabezado;
+        private System.Windows.Forms.PictureBox pbSiguiente;
+        private System.Windows.Forms.PictureBox pbVerificar;
     }
 }

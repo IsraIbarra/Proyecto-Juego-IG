@@ -24,7 +24,7 @@ namespace ProyectoKahootXD
             MySqlConnection con = conexion.getConexion();
 
 
-            string query = "SELECT  categoria_id,numero_pregunta, id, enunciado, tipo_respuesta From preguntas WHERE categoria_id = " + categoria.ToString() + " ORDER BY rand() LIMIT 1;";
+            string query = "SELECT  categoria_id,numero_pregunta, id, enunciado, tipo_respuesta From preguntas WHERE tipo_respuesta = 'Audio' AND categoria_id = " + categoria.ToString() + " ORDER BY rand() LIMIT 1;";
 
             MySqlCommand cmd = new MySqlCommand(query, con);
 
