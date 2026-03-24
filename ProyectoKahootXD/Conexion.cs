@@ -15,7 +15,7 @@ namespace ProyectoKahootXD
         private string server = "localhost";
         private string database = "trivia";
         private string user = "root";
-        private string password = "root";
+        private string password = "luismiguel";
         private string cadenaConexion;
         
     
