@@ -143,16 +143,19 @@ namespace ProyectoKahootXD
                 {
                     case "Texto":
                         Texto texto = new Texto(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        texto.Location = this.Location;
                         texto.Show();
                         this.Hide();
                         break;
                     case "Imagen":
                         Form1 imagen = new Form1(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        imagen.Location = this.Location;
                         imagen.Show();
                         this.Hide();
                         break;
                     case "Audio":
                         Form3 audio = new Form3(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        audio.Location = this.Location;
                         audio.Show();
                         this.Hide();
                         break;
@@ -161,6 +164,7 @@ namespace ProyectoKahootXD
             else
             {
                 Form4 resultado = new Form4(respCorr);
+                resultado.Location = this.Location;
                 resultado.Show();
                 this.Hide();
             }
@@ -304,23 +308,32 @@ namespace ProyectoKahootXD
             {
                 MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respCorr);
+                final.Location = this.Location;
                 final.Show();
                 this.Close();
             }
         }
-
+        //esta doble la funcion???
         private void AbrirSiguienteForm(Preguntas p, Respuesta r)
         {
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    new Texto(p, r, contadorpreg, respCorr).Show();
+                    Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
+                    siguiente.Location = this.Location;
+                    siguiente.Show();
                     break;
+
                 case "Imagen":
-                    new Form1(p, r, contadorpreg, respCorr).Show();
+                    Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
+                    sig1.Location = this.Location;
+                    sig1.Show();
                     break;
+
                 case "Audio":
-                    new Form3(p, r, contadorpreg, respCorr).Show();
+                    Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
+                    sig3.Location = this.Location;
+                    sig3.Show();
                     break;
             }
         }

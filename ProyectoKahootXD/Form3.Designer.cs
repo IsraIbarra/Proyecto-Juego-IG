@@ -57,10 +57,9 @@ namespace ProyectoKahootXD
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(13, 216);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Location = new System.Drawing.Point(10, 176);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(42, 20);
+            this.checkBox1.Size = new System.Drawing.Size(36, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "A)";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -70,10 +69,9 @@ namespace ProyectoKahootXD
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(634, 216);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox2.Location = new System.Drawing.Point(476, 176);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(42, 20);
+            this.checkBox2.Size = new System.Drawing.Size(36, 17);
             this.checkBox2.TabIndex = 3;
             this.checkBox2.Text = "B)";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -83,10 +81,9 @@ namespace ProyectoKahootXD
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(12, 359);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox3.Location = new System.Drawing.Point(9, 292);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(42, 20);
+            this.checkBox3.Size = new System.Drawing.Size(36, 17);
             this.checkBox3.TabIndex = 4;
             this.checkBox3.Text = "C)";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -96,10 +93,9 @@ namespace ProyectoKahootXD
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(633, 359);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox4.Location = new System.Drawing.Point(475, 292);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(43, 20);
+            this.checkBox4.Size = new System.Drawing.Size(37, 17);
             this.checkBox4.TabIndex = 5;
             this.checkBox4.Text = "D)";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -109,7 +105,6 @@ namespace ProyectoKahootXD
             // 
             this.axWindowsMediaPlayer4.Enabled = true;
             this.axWindowsMediaPlayer4.Location = new System.Drawing.Point(462, 319);
-            this.axWindowsMediaPlayer4.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer4.Name = "axWindowsMediaPlayer4";
             this.axWindowsMediaPlayer4.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer4.OcxState")));
             this.axWindowsMediaPlayer4.Size = new System.Drawing.Size(214, 50);
@@ -120,7 +115,6 @@ namespace ProyectoKahootXD
             // 
             this.axWindowsMediaPlayer3.Enabled = true;
             this.axWindowsMediaPlayer3.Location = new System.Drawing.Point(12, 319);
-            this.axWindowsMediaPlayer3.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer3.Name = "axWindowsMediaPlayer3";
             this.axWindowsMediaPlayer3.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer3.OcxState")));
             this.axWindowsMediaPlayer3.Size = new System.Drawing.Size(214, 50);
@@ -131,7 +125,6 @@ namespace ProyectoKahootXD
             // 
             this.axWindowsMediaPlayer2.Enabled = true;
             this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(462, 216);
-            this.axWindowsMediaPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
             this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(214, 50);
@@ -142,7 +135,6 @@ namespace ProyectoKahootXD
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 216);
-            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(214, 50);
@@ -151,10 +143,10 @@ namespace ProyectoKahootXD
             // 
             // pictureBoxpregunta
             // 
-            this.pictureBoxpregunta.Location = new System.Drawing.Point(922, 154);
+            this.pictureBoxpregunta.Location = new System.Drawing.Point(692, 125);
             this.pictureBoxpregunta.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxpregunta.Name = "pictureBoxpregunta";
-            this.pictureBoxpregunta.Size = new System.Drawing.Size(113, 95);
+            this.pictureBoxpregunta.Size = new System.Drawing.Size(85, 77);
             this.pictureBoxpregunta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxpregunta.TabIndex = 12;
             this.pictureBoxpregunta.TabStop = false;
@@ -163,36 +155,39 @@ namespace ProyectoKahootXD
             // 
             // pbEncabezado
             // 
-            this.pbEncabezado.Location = new System.Drawing.Point(12, 12);
+            this.pbEncabezado.Location = new System.Drawing.Point(9, 10);
+            this.pbEncabezado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbEncabezado.Name = "pbEncabezado";
-            this.pbEncabezado.Size = new System.Drawing.Size(1023, 126);
+            this.pbEncabezado.Size = new System.Drawing.Size(767, 102);
             this.pbEncabezado.TabIndex = 15;
             this.pbEncabezado.TabStop = false;
             // 
             // pbSiguiente
             // 
-            this.pbSiguiente.Location = new System.Drawing.Point(905, 472);
+            this.pbSiguiente.Location = new System.Drawing.Point(679, 384);
+            this.pbSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbSiguiente.Name = "pbSiguiente";
-            this.pbSiguiente.Size = new System.Drawing.Size(150, 70);
+            this.pbSiguiente.Size = new System.Drawing.Size(112, 57);
             this.pbSiguiente.TabIndex = 16;
             this.pbSiguiente.TabStop = false;
             this.pbSiguiente.Click += new System.EventHandler(this.pbSiguiente_Click);
             // 
             // pbVerificar
             // 
-            this.pbVerificar.Location = new System.Drawing.Point(905, 472);
+            this.pbVerificar.Location = new System.Drawing.Point(679, 384);
+            this.pbVerificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbVerificar.Name = "pbVerificar";
-            this.pbVerificar.Size = new System.Drawing.Size(150, 70);
+            this.pbVerificar.Size = new System.Drawing.Size(112, 57);
             this.pbVerificar.TabIndex = 17;
             this.pbVerificar.TabStop = false;
             this.pbVerificar.Click += new System.EventHandler(this.pbVerificar_Click);
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.axWindowsMediaPlayer4);
             this.Controls.Add(this.checkBox3);
@@ -205,8 +200,8 @@ namespace ProyectoKahootXD
             this.Controls.Add(this.pbSiguiente);
             this.Controls.Add(this.pbEncabezado);
             this.Controls.Add(this.pictureBoxpregunta);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Kah00t";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer4)).EndInit();

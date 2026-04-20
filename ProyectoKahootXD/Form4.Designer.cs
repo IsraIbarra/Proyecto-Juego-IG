@@ -89,6 +89,7 @@
             this.Controls.Add(this.pbEncabezado);
             this.Controls.Add(this.labelRes);
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbEncabezado)).EndInit();

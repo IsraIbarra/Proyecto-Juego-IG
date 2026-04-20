@@ -154,14 +154,23 @@ namespace ProyectoKahootXD
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    new Texto(p, r, contadorPreguntas, respsCorr).Show();
+                    Texto siguiente = new Texto(p, r, contadorPreguntas, respsCorr);
+                    siguiente.Location = this.Location;
+                    siguiente.Show();
                     break;
+
                 case "Imagen":
-                    new Form1(p, r, contadorPreguntas, respsCorr).Show();
+                    Form1 sig1 = new Form1(p, r, contadorPreguntas, respsCorr);
+                    sig1.Location = this.Location;
+                    sig1.Show();
                     break;
+
                 case "Audio":
-                    new Form3(p, r, contadorPreguntas, respsCorr).Show();
+                    Form3 sig3 = new Form3(p, r, contadorPreguntas, respsCorr);
+                    sig3.Location = this.Location;
+                    sig3.Show();
                     break;
+                
             }
         }
         private void DibujarEncabezado(PictureBox pb, int numeroPregunta, string enunciado)

@@ -142,13 +142,20 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    new Texto(pregunta, respuestas, contador, respCorr).Show();
+                    Texto sigT = new Texto(pregunta, respuestas, contador, respCorr);
+                    sigT.Location = this.Location;
+                    sigT.Show();
+
                     break;
                 case "Imagen":
-                    new Form1(pregunta, respuestas, contador, respCorr).Show();
+                    Form1 sig1 = new Form1(pregunta, respuestas, contador, respCorr);
+                    sig1.Location = this.Location;
+                    sig1.Show();
                     break;
                 case "Audio":
-                    new Form3(pregunta, respuestas, contador, respCorr).Show();
+                    Form3 sig3 = new Form3(pregunta, respuestas, contador, respCorr);
+                    sig3.Location = this.Location;
+                    sig3.Show();
                     break;
             }
             this.Hide();

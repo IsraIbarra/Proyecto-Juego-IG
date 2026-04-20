@@ -280,6 +280,7 @@ namespace ProyectoKahootXD
             {
                 MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respCorr);
+                final.Location = this.Location;
                 final.Show();
                 this.Close();
             }
@@ -290,14 +291,23 @@ namespace ProyectoKahootXD
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    new Texto(p, r, contadorpreg, respCorr).Show();
+                    Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
+                    siguiente.Location = this.Location;
+                    siguiente.Show();
                     break;
+
                 case "Imagen":
-                    new Form1(p, r, contadorpreg, respCorr).Show();
+                    Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
+                    sig1.Location = this.Location;
+                    sig1.Show();
                     break;
+
                 case "Audio":
-                    new Form3(p, r, contadorpreg, respCorr).Show();
+                    Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
+                    sig3.Location = this.Location;
+                    sig3.Show();
                     break;
+                    
             }
         }
 
