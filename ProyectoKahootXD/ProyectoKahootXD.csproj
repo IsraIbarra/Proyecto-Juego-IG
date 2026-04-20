@@ -136,6 +136,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Respuesta.cs" />
     <Compile Include="Texto.cs">
       <SubType>Form</SubType>
@@ -157,13 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Texto.resx">
       <DependentUpon>Texto.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +200,93 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musica.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geografia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geografia.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cine.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sports.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ciencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ciencia.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computacion.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musica1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\musica1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sports1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sports1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ciencia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ciencia1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cine1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geografia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geografia1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computacion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computacion1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
