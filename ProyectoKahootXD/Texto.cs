@@ -290,5 +290,9 @@ namespace ProyectoKahootXD
             }   
         }
 
+        private void pbEncabezadoPregunta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

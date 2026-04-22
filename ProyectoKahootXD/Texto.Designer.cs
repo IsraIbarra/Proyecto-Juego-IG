@@ -185,6 +185,7 @@
             this.pbEncabezadoPregunta.Size = new System.Drawing.Size(1002, 224);
             this.pbEncabezadoPregunta.TabIndex = 12;
             this.pbEncabezadoPregunta.TabStop = false;
+            this.pbEncabezadoPregunta.Click += new System.EventHandler(this.pbEncabezadoPregunta_Click);
             // 
             // pbSiguiente
             // 
