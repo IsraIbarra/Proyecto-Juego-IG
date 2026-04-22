@@ -133,6 +133,7 @@ namespace ProyectoKahootXD
             }
 
             Form2 menu = new Form2();
+            menu.Location = this.Location;
             menu.Show();
             this.Close();
         }
