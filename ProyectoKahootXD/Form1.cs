@@ -6,7 +6,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -266,20 +268,29 @@ namespace ProyectoKahootXD
 
         private void pbVerificar_Click(object sender, EventArgs e)
         {
+
+            int R= 0, G= 0, B = 0;
+
             if (checkbox_id == 0)
             {
-                MessageBox.Show("¡Selecciona una respuesta primero!");
+                //MessageBox.Show("¡Selecciona una respuesta primero!");
+                errorProvider1.SetError(pbVerificar, "¡Selecciona una respuesta primero!");
+                SystemSounds.Exclamation.Play();
                 return;
             }
 
             if (checkbox_id == respuestas.respID_correcta)
             {
-                MessageBox.Show("¡Correcto!");
+                //MessageBox.Show("¡Correcto!");
+                //SystemSounds.Beep.Play();
+                G = 230;
                 respCorr++;
             }
             else
             {
-                MessageBox.Show("Incorrecto...");
+                //MessageBox.Show("Incorrecto...");
+                //SystemSounds.Hand.Play();
+                R = 230;
             }
 
             
@@ -287,7 +298,7 @@ namespace ProyectoKahootXD
             pbSiguiente.Visible = true;
 
             
-            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(255, 152, 0)); // Naranja
+            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
         private void pbSiguiente_Click(object sender, EventArgs e)
@@ -306,7 +317,7 @@ namespace ProyectoKahootXD
             }
             else
             {
-                MessageBox.Show("Felicidades! Completaste el Quiz.");
+                //MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respCorr);
                 final.Location = this.Location;
                 final.Show();

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D; 
 using System.Drawing.Text;     
 using System.Windows.Forms;
+using System.Media;
 
 namespace ProyectoKahootXD
 {
@@ -252,20 +253,25 @@ namespace ProyectoKahootXD
 
         private void pbVerificar_Click(object sender, EventArgs e)
         {
+            int R = 0, G = 0, B = 0;
             if (idResp == 0)
             {
-                MessageBox.Show("¡Selecciona una respuesta primero!");
+                //MessageBox.Show("¡Selecciona una respuesta primero!");
+                //errorProvider1.SetError(pbVerificar, "¡Selecciona una respuesta primero!");
+                SystemSounds.Exclamation.Play();
                 return;
             }
 
             if (idResp == objetoRespuesta.respID_correcta)
             {
-                MessageBox.Show("¡Correcto!");
+                //MessageBox.Show("¡Correcto!");
+                G = 230;
                 respsCorr++;
             }
             else
             {
-                MessageBox.Show("Incorrecto...");
+                //MessageBox.Show("Incorrecto...");
+                R = 230;
             }
 
             // Cambiamos visibilidad de los PictureBox
@@ -273,7 +279,7 @@ namespace ProyectoKahootXD
             pbSiguiente.Visible = true;
 
             // Dibujamos el botón siguiente al momento de mostrarlo
-            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(255, 152, 0)); // Naranja
+            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
         private void pbSiguiente_Click(object sender, EventArgs e)
@@ -292,7 +298,7 @@ namespace ProyectoKahootXD
             }
             else
             {
-                MessageBox.Show("Felicidades! Completaste el Quiz.");
+                //MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respsCorr);
                 final.Show();
                 this.Close();
