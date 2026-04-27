@@ -53,6 +53,8 @@
             this.pbJugador.Size = new System.Drawing.Size(184, 179);
             this.pbJugador.TabIndex = 1;
             this.pbJugador.TabStop = false;
+            this.pbJugador.Click += new System.EventHandler(this.pbJugador_Click);
+            this.pbJugador.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbJugador_MouseDoubleClick);
             // 
             // pbMultijugador
             // 
@@ -61,6 +63,8 @@
             this.pbMultijugador.Size = new System.Drawing.Size(184, 179);
             this.pbMultijugador.TabIndex = 2;
             this.pbMultijugador.TabStop = false;
+            this.pbMultijugador.Click += new System.EventHandler(this.pbMultijugador_Click);
+            this.pbMultijugador.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbMultijugador_MouseDoubleClick);
             // 
             // pbSalir
             // 
@@ -69,6 +73,8 @@
             this.pbSalir.Size = new System.Drawing.Size(184, 179);
             this.pbSalir.TabIndex = 3;
             this.pbSalir.TabStop = false;
+            this.pbSalir.Click += new System.EventHandler(this.pbSalir_Click);
+            this.pbSalir.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbSalir_MouseDoubleClick);
             // 
             // Menu
             // 

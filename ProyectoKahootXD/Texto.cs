@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ProyectoKahootXD
 {
-    public partial class Texto : Form
+    public partial class Texto : FormBase
     {
 
         Preguntas objetoPregunta;
@@ -23,6 +23,7 @@ namespace ProyectoKahootXD
         public Texto(Preguntas preg, Respuesta resps, int numeroActual, int respb)
         {
             InitializeComponent();
+            this.InicializarEscalado();
             this.objetoPregunta = preg;
             this.objetoRespuesta = resps;
             this.contadorPreguntas = numeroActual;
@@ -108,18 +109,18 @@ namespace ProyectoKahootXD
         {
             if (idResp == 0)
             {
-                MessageBox.Show("Por favor, selecciona una respuesta.");
+                //MessageBox.Show("Por favor, selecciona una respuesta.");
                 return;
             }
 
             if (idResp == objetoRespuesta.respID_correcta)
             {
-                MessageBox.Show("Respuesta Correcta", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Respuesta Correcta", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 respsCorr++;
             }
             else
             {
-                MessageBox.Show("Respuesta Incorrecta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Respuesta Incorrecta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             btnVerificar.Hide();
@@ -142,10 +143,11 @@ namespace ProyectoKahootXD
             }
             else
             {
-                MessageBox.Show("Felicidades! Completaste el Quiz.");
+                /*MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respsCorr);
                 final.Show();
-                this.Close();
+                this.Close();*/
+                NavegarA(new Form4(respsCorr));
             }
         }
 
@@ -154,21 +156,24 @@ namespace ProyectoKahootXD
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    Texto siguiente = new Texto(p, r, contadorPreguntas, respsCorr);
+                    /*Texto siguiente = new Texto(p, r, contadorPreguntas, respsCorr);
                     siguiente.Location = this.Location;
-                    siguiente.Show();
+                    siguiente.Show();*/
+                    NavegarA(new Texto(p, r, contadorPreguntas, respsCorr));
                     break;
 
                 case "Imagen":
-                    Form1 sig1 = new Form1(p, r, contadorPreguntas, respsCorr);
-                    sig1.Location = this.Location;
-                    sig1.Show();
+                    /* Form1 sig1 = new Form1(p, r, contadorPreguntas, respsCorr);
+                     sig1.Location = this.Location;
+                     sig1.Show();*/
+                    NavegarA(new Form1(p, r, contadorPreguntas, respsCorr));
                     break;
 
                 case "Audio":
-                    Form3 sig3 = new Form3(p, r, contadorPreguntas, respsCorr);
-                    sig3.Location = this.Location;
-                    sig3.Show();
+                    /* Form3 sig3 = new Form3(p, r, contadorPreguntas, respsCorr);
+                     sig3.Location = this.Location;
+                     sig3.Show();*/
+                    NavegarA(new Form3(p, r, contadorPreguntas, respsCorr));
                     break;
                 
             }

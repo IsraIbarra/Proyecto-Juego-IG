@@ -17,7 +17,7 @@ using static ProyectoKahootXD.Respuesta;
 
 namespace ProyectoKahootXD
 {
-    public partial class Form3 : Form
+    public partial class Form3 : FormBase
     {
         Preguntas pregunta = new Preguntas();
         Respuesta respuestas = new Respuesta();
@@ -32,6 +32,7 @@ namespace ProyectoKahootXD
         public Form3(Preguntas preg, Respuesta resps, int actual,int respb)
         {
             InitializeComponent();
+            this.InicializarEscalado();
             this.pregunta = preg;
             this.respuestas = resps;
             this.contadorpreg = actual;
@@ -240,18 +241,18 @@ namespace ProyectoKahootXD
         {
             if (checkbox_id == 0)
             {
-                MessageBox.Show("¡Selecciona una respuesta primero!");
+               // MessageBox.Show("¡Selecciona una respuesta primero!");
                 return;
             }
 
             if (checkbox_id == respuestas.respID_correcta)
             {
-                MessageBox.Show("¡Correcto!");
+                //MessageBox.Show("¡Correcto!");
                 respCorr++;
             }
             else
             {
-                MessageBox.Show("Incorrecto...");
+                //MessageBox.Show("Incorrecto...");
             }
 
 
@@ -278,11 +279,12 @@ namespace ProyectoKahootXD
             }
             else
             {
-                MessageBox.Show("Felicidades! Completaste el Quiz.");
-                Form4 final = new Form4(respCorr);
-                final.Location = this.Location;
-                final.Show();
-                this.Close();
+                // MessageBox.Show("Felicidades! Completaste el Quiz.");
+                /* Form4 final = new Form4(respCorr);
+                 final.Location = this.Location;
+                 final.Show();
+                 this.Close();*/
+                NavegarA(new Form4(respCorr));
             }
         }
 
@@ -291,21 +293,24 @@ namespace ProyectoKahootXD
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
+                    /*Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
                     siguiente.Location = this.Location;
-                    siguiente.Show();
+                    siguiente.Show();*/
+                    NavegarA(new Texto(p, r, contadorpreg, respCorr));
                     break;
 
                 case "Imagen":
-                    Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
-                    sig1.Location = this.Location;
-                    sig1.Show();
+                    /* Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
+                     sig1.Location = this.Location;
+                     sig1.Show();*/
+                    NavegarA(new Form1(p, r, contadorpreg, respCorr));
                     break;
 
                 case "Audio":
-                    Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
-                    sig3.Location = this.Location;
-                    sig3.Show();
+                    /* Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
+                     sig3.Location = this.Location;
+                     sig3.Show();*/
+                    NavegarA(new Form3(p, r, contadorpreg, respCorr));
                     break;
                     
             }

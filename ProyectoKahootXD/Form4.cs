@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ProyectoKahootXD
 {
-    public partial class Form4 : Form
+    public partial class Form4 : FormBase
     {
         int respCorr = 0;
         Color colorTextoSecundario = Color.FromArgb(180, 180, 180);
@@ -15,6 +15,7 @@ namespace ProyectoKahootXD
         public Form4(int respb)
         {
             InitializeComponent();
+            this.InicializarEscalado();
             this.respCorr = respb;
 
             this.pbRestart.Click += new System.EventHandler(this.pbRestart_Click);

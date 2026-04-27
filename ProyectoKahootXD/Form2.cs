@@ -15,11 +15,12 @@ using static ProyectoKahootXD.Respuesta;
 
 namespace ProyectoKahootXD
 {
-    public partial class Form2 : Form
+    public partial class Form2 : FormBase
     {
         public Form2()
         {
             InitializeComponent();
+            this.InicializarEscalado();
 
             picBanner.Paint += PicBanner_Paint;
             picHistoria.Image = Properties.Resources.historia1;
@@ -142,20 +143,22 @@ namespace ProyectoKahootXD
             switch (pregunta.tipoPrin)
             {
                 case "Texto":
-                    Texto sigT = new Texto(pregunta, respuestas, contador, respCorr);
-                    sigT.Location = this.Location;
-                    sigT.Show();
-
+                    /* Texto sigT = new Texto(pregunta, respuestas, contador, respCorr);
+                     sigT.Location = this.Location;
+                     sigT.Show();*/
+                    NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
                     break;
                 case "Imagen":
-                    Form1 sig1 = new Form1(pregunta, respuestas, contador, respCorr);
-                    sig1.Location = this.Location;
-                    sig1.Show();
+                    /* Form1 sig1 = new Form1(pregunta, respuestas, contador, respCorr);
+                     sig1.Location = this.Location;
+                     sig1.Show();*/
+                    NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
                     break;
                 case "Audio":
-                    Form3 sig3 = new Form3(pregunta, respuestas, contador, respCorr);
-                    sig3.Location = this.Location;
-                    sig3.Show();
+                    /* Form3 sig3 = new Form3(pregunta, respuestas, contador, respCorr);
+                     sig3.Location = this.Location;
+                     sig3.Show();*/
+                    NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
                     break;
             }
             this.Hide();
@@ -216,5 +219,16 @@ namespace ProyectoKahootXD
         private void label1_Click(object sender, EventArgs e) { }
         private void picBanner_Click(object sender, EventArgs e) { }
         private void button1_Click(object sender, EventArgs e) { }
+
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e); 
+ 
+            if (picBanner != null)
+            {
+                picBanner.Invalidate();
+            }
+        }
     }
 }
