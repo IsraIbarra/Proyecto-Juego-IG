@@ -113,69 +113,12 @@ namespace ProyectoKahootXD
             throw new NotImplementedException();
         }
 
-        private void pictureBox1_load(object sender, EventArgs e)
-        {
+        private void pictureBox1_load(object sender, EventArgs e) {}
+        private void pictureBoxB_load(object sender, EventArgs e){}
+        private void pictureBoxC_load(object sender, EventArgs e){}
+        private void pictureBoxD_load(object sender, EventArgs e){}
 
-        }
-        private void pictureBoxB_load(object sender, EventArgs e)
-        {
-
-
-        }
-        private void pictureBoxC_load(object sender, EventArgs e)
-        {
-
-
-        }
-        private void pictureBoxD_load(object sender, EventArgs e)
-        {
-        }
-
-        private void botonSig_Click(object sender, EventArgs e)
-        {
-            /*this.contadorpreg++;
-            if (contadorpreg < 12)
-            {
-                Preguntas preguntaN = new Preguntas();
-                Respuesta respuestasN = new Respuesta();
-
-                preguntaN.getpregunta(pregunta.catPrin);
-                respuestasN.getRespuestas(preguntaN.idPrin);
-                switch (preguntaN.tipoPrin)
-                {
-                    case "Texto":
-                         Texto texto = new Texto(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
-                         texto.Location = this.Location;
-                         texto.Show();
-                         this.Hide();
-                        NavegarA(new Texto(preguntaN, respuestasN, this.contadorpreg, this.respCorr));
-                        break;
-                    case "Imagen":
-                        Form1 imagen = new Form1(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
-                        imagen.Location = this.Location;
-                        imagen.Show();
-                        this.Hide();
-                        NavegarA(new Form1(preguntaN, respuestasN, this.contadorpreg, this.respCorr));
-                        break;
-                    case "Audio":
-                         Form3 audio = new Form3(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
-                         audio.Location = this.Location;
-                         audio.Show();
-                         this.Hide();
-                        NavegarA(new Form3(preguntaN, respuestasN, this.contadorpreg, this.respCorr));
-                        break;
-               }
-            }
-            else
-            {
-                Form4 resultado = new Form4(respCorr);
-                resultado.Location = this.Location;
-                resultado.Show();
-                this.Hide();
-               
-               NavegarA(new Form4(respCorr));
-            }*/
-        }
+        private void botonSig_Click(object sender, EventArgs e){}
 
         private void DibujarEncabezado(PictureBox pb, int numeroPregunta, string enunciado)
         {
