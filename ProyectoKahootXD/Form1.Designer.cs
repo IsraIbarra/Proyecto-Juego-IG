@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -40,6 +41,7 @@
             this.pbEncabezadoPregunta = new System.Windows.Forms.PictureBox();
             this.pbSiguiente = new System.Windows.Forms.PictureBox();
             this.pbVerificar = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxC)).BeginInit();
@@ -47,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEncabezadoPregunta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVerificar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -180,6 +183,11 @@
             this.pbVerificar.TabStop = false;
             this.pbVerificar.Click += new System.EventHandler(this.pbVerificar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.RightToLeft = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +218,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEncabezadoPregunta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVerificar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +238,7 @@
         private System.Windows.Forms.PictureBox pbEncabezadoPregunta;
         private System.Windows.Forms.PictureBox pbSiguiente;
         private System.Windows.Forms.PictureBox pbVerificar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         // private System.Windows.Forms.Button botonSig;
     }
 }

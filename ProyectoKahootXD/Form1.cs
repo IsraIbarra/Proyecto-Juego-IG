@@ -6,7 +6,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -216,6 +218,9 @@ namespace ProyectoKahootXD
 
         private void pbVerificar_Click(object sender, EventArgs e)
         {
+
+            int R= 0, G= 0, B = 0;
+
             if (checkbox_id == 0)
             {
                 //MessageBox.Show("¡Selecciona una respuesta primero!");
@@ -237,7 +242,7 @@ namespace ProyectoKahootXD
             pbSiguiente.Visible = true;
 
             
-            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(255, 152, 0)); // Naranja
+            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
         private void pbSiguiente_Click(object sender, EventArgs e)

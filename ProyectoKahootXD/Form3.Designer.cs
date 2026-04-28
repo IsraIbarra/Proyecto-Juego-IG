@@ -156,7 +156,7 @@ namespace ProyectoKahootXD
             // pbEncabezado
             // 
             this.pbEncabezado.Location = new System.Drawing.Point(9, 10);
-            this.pbEncabezado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbEncabezado.Margin = new System.Windows.Forms.Padding(2);
             this.pbEncabezado.Name = "pbEncabezado";
             this.pbEncabezado.Size = new System.Drawing.Size(767, 102);
             this.pbEncabezado.TabIndex = 15;
@@ -165,7 +165,7 @@ namespace ProyectoKahootXD
             // pbSiguiente
             // 
             this.pbSiguiente.Location = new System.Drawing.Point(679, 384);
-            this.pbSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbSiguiente.Margin = new System.Windows.Forms.Padding(2);
             this.pbSiguiente.Name = "pbSiguiente";
             this.pbSiguiente.Size = new System.Drawing.Size(112, 57);
             this.pbSiguiente.TabIndex = 16;
@@ -175,7 +175,7 @@ namespace ProyectoKahootXD
             // pbVerificar
             // 
             this.pbVerificar.Location = new System.Drawing.Point(679, 384);
-            this.pbVerificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbVerificar.Margin = new System.Windows.Forms.Padding(2);
             this.pbVerificar.Name = "pbVerificar";
             this.pbVerificar.Size = new System.Drawing.Size(112, 57);
             this.pbVerificar.TabIndex = 17;
