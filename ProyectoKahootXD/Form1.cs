@@ -6,7 +6,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -143,16 +145,19 @@ namespace ProyectoKahootXD
                 {
                     case "Texto":
                         Texto texto = new Texto(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        texto.Location = this.Location;
                         texto.Show();
                         this.Hide();
                         break;
                     case "Imagen":
                         Form1 imagen = new Form1(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        imagen.Location = this.Location;
                         imagen.Show();
                         this.Hide();
                         break;
                     case "Audio":
                         Form3 audio = new Form3(preguntaN, respuestasN, this.contadorpreg, this.respCorr);
+                        audio.Location = this.Location;
                         audio.Show();
                         this.Hide();
                         break;
@@ -161,6 +166,7 @@ namespace ProyectoKahootXD
             else
             {
                 Form4 resultado = new Form4(respCorr);
+                resultado.Location = this.Location;
                 resultado.Show();
                 this.Hide();
             }
@@ -262,20 +268,29 @@ namespace ProyectoKahootXD
 
         private void pbVerificar_Click(object sender, EventArgs e)
         {
+
+            int R= 0, G= 0, B = 0;
+
             if (checkbox_id == 0)
             {
-                MessageBox.Show("¡Selecciona una respuesta primero!");
+                //MessageBox.Show("¡Selecciona una respuesta primero!");
+                errorProvider1.SetError(pbVerificar, "¡Selecciona una respuesta primero!");
+                SystemSounds.Exclamation.Play();
                 return;
             }
 
             if (checkbox_id == respuestas.respID_correcta)
             {
-                MessageBox.Show("¡Correcto!");
+                //MessageBox.Show("¡Correcto!");
+                //SystemSounds.Beep.Play();
+                G = 230;
                 respCorr++;
             }
             else
             {
-                MessageBox.Show("Incorrecto...");
+                //MessageBox.Show("Incorrecto...");
+                //SystemSounds.Hand.Play();
+                R = 230;
             }
 
             
@@ -283,7 +298,7 @@ namespace ProyectoKahootXD
             pbSiguiente.Visible = true;
 
             
-            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(255, 152, 0)); // Naranja
+            DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
         private void pbSiguiente_Click(object sender, EventArgs e)
@@ -302,25 +317,34 @@ namespace ProyectoKahootXD
             }
             else
             {
-                MessageBox.Show("Felicidades! Completaste el Quiz.");
+                //MessageBox.Show("Felicidades! Completaste el Quiz.");
                 Form4 final = new Form4(respCorr);
+                final.Location = this.Location;
                 final.Show();
                 this.Close();
             }
         }
-
+        //esta doble la funcion???
         private void AbrirSiguienteForm(Preguntas p, Respuesta r)
         {
             switch (p.tipoPrin)
             {
                 case "Texto":
-                    new Texto(p, r, contadorpreg, respCorr).Show();
+                    Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
+                    siguiente.Location = this.Location;
+                    siguiente.Show();
                     break;
+
                 case "Imagen":
-                    new Form1(p, r, contadorpreg, respCorr).Show();
+                    Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
+                    sig1.Location = this.Location;
+                    sig1.Show();
                     break;
+
                 case "Audio":
-                    new Form3(p, r, contadorpreg, respCorr).Show();
+                    Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
+                    sig3.Location = this.Location;
+                    sig3.Show();
                     break;
             }
         }

@@ -56,28 +56,30 @@
             // 
             this.lblNumero.AutoSize = true;
             this.lblNumero.ForeColor = System.Drawing.Color.White;
-            this.lblNumero.Location = new System.Drawing.Point(37, 33);
+            this.lblNumero.Location = new System.Drawing.Point(28, 27);
+            this.lblNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(89, 16);
+            this.lblNumero.Size = new System.Drawing.Size(76, 13);
             this.lblNumero.TabIndex = 0;
             this.lblNumero.Text = "Pregunta 1/12";
             // 
             // lblEnunciado
             // 
             this.lblEnunciado.ForeColor = System.Drawing.Color.White;
-            this.lblEnunciado.Location = new System.Drawing.Point(37, 78);
+            this.lblEnunciado.Location = new System.Drawing.Point(28, 63);
+            this.lblEnunciado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEnunciado.Name = "lblEnunciado";
-            this.lblEnunciado.Size = new System.Drawing.Size(728, 126);
+            this.lblEnunciado.Size = new System.Drawing.Size(546, 102);
             this.lblEnunciado.TabIndex = 1;
             // 
             // btnOpcionA
             // 
             this.btnOpcionA.BackColor = System.Drawing.Color.Red;
             this.btnOpcionA.ForeColor = System.Drawing.Color.White;
-            this.btnOpcionA.Location = new System.Drawing.Point(15, 281);
-            this.btnOpcionA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpcionA.Location = new System.Drawing.Point(11, 228);
+            this.btnOpcionA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpcionA.Name = "btnOpcionA";
-            this.btnOpcionA.Size = new System.Drawing.Size(520, 73);
+            this.btnOpcionA.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionA.TabIndex = 2;
             this.btnOpcionA.Text = "button1";
             this.btnOpcionA.UseVisualStyleBackColor = false;
@@ -86,10 +88,10 @@
             // 
             this.btnOpcionB.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnOpcionB.ForeColor = System.Drawing.Color.White;
-            this.btnOpcionB.Location = new System.Drawing.Point(540, 281);
-            this.btnOpcionB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpcionB.Location = new System.Drawing.Point(405, 228);
+            this.btnOpcionB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpcionB.Name = "btnOpcionB";
-            this.btnOpcionB.Size = new System.Drawing.Size(520, 73);
+            this.btnOpcionB.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionB.TabIndex = 3;
             this.btnOpcionB.Text = "button1";
             this.btnOpcionB.UseVisualStyleBackColor = false;
@@ -98,10 +100,10 @@
             // 
             this.btnOpcionC.BackColor = System.Drawing.Color.Gold;
             this.btnOpcionC.ForeColor = System.Drawing.Color.White;
-            this.btnOpcionC.Location = new System.Drawing.Point(15, 358);
-            this.btnOpcionC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpcionC.Location = new System.Drawing.Point(11, 291);
+            this.btnOpcionC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpcionC.Name = "btnOpcionC";
-            this.btnOpcionC.Size = new System.Drawing.Size(520, 73);
+            this.btnOpcionC.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionC.TabIndex = 4;
             this.btnOpcionC.Text = "button1";
             this.btnOpcionC.UseVisualStyleBackColor = false;
@@ -110,10 +112,10 @@
             // 
             this.btnOpcionD.BackColor = System.Drawing.Color.LimeGreen;
             this.btnOpcionD.ForeColor = System.Drawing.Color.White;
-            this.btnOpcionD.Location = new System.Drawing.Point(540, 358);
-            this.btnOpcionD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpcionD.Location = new System.Drawing.Point(405, 291);
+            this.btnOpcionD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpcionD.Name = "btnOpcionD";
-            this.btnOpcionD.Size = new System.Drawing.Size(520, 73);
+            this.btnOpcionD.Size = new System.Drawing.Size(390, 59);
             this.btnOpcionD.TabIndex = 5;
             this.btnOpcionD.Text = "button1";
             this.btnOpcionD.UseVisualStyleBackColor = false;
@@ -121,10 +123,10 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnSiguiente.Location = new System.Drawing.Point(897, 471);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSiguiente.Location = new System.Drawing.Point(673, 383);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(145, 69);
+            this.btnSiguiente.Size = new System.Drawing.Size(109, 56);
             this.btnSiguiente.TabIndex = 6;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -133,10 +135,9 @@
             // btnVerificar
             // 
             this.btnVerificar.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnVerificar.Location = new System.Drawing.Point(897, 471);
-            this.btnVerificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerificar.Location = new System.Drawing.Point(673, 383);
             this.btnVerificar.Name = "btnVerificar";
-            this.btnVerificar.Size = new System.Drawing.Size(145, 70);
+            this.btnVerificar.Size = new System.Drawing.Size(109, 57);
             this.btnVerificar.TabIndex = 7;
             this.btnVerificar.Text = "Verificar";
             this.btnVerificar.UseVisualStyleBackColor = true;
@@ -144,72 +145,79 @@
             // 
             // pbA
             // 
-            this.pbA.Location = new System.Drawing.Point(15, 263);
+            this.pbA.Location = new System.Drawing.Point(11, 214);
+            this.pbA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbA.Name = "pbA";
-            this.pbA.Size = new System.Drawing.Size(520, 90);
+            this.pbA.Size = new System.Drawing.Size(390, 73);
             this.pbA.TabIndex = 8;
             this.pbA.TabStop = false;
             this.pbA.Click += new System.EventHandler(this.pbA_Click);
             // 
             // pbB
             // 
-            this.pbB.Location = new System.Drawing.Point(540, 263);
+            this.pbB.Location = new System.Drawing.Point(405, 214);
+            this.pbB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbB.Name = "pbB";
-            this.pbB.Size = new System.Drawing.Size(520, 91);
+            this.pbB.Size = new System.Drawing.Size(390, 74);
             this.pbB.TabIndex = 9;
             this.pbB.TabStop = false;
             this.pbB.Click += new System.EventHandler(this.pbB_Click);
             // 
             // pbC
             // 
-            this.pbC.Location = new System.Drawing.Point(15, 359);
+            this.pbC.Location = new System.Drawing.Point(11, 292);
+            this.pbC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbC.Name = "pbC";
-            this.pbC.Size = new System.Drawing.Size(520, 89);
+            this.pbC.Size = new System.Drawing.Size(390, 72);
             this.pbC.TabIndex = 10;
             this.pbC.TabStop = false;
             this.pbC.Click += new System.EventHandler(this.pbC_Click);
             // 
             // pbD
             // 
-            this.pbD.Location = new System.Drawing.Point(541, 359);
+            this.pbD.Location = new System.Drawing.Point(406, 292);
+            this.pbD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbD.Name = "pbD";
-            this.pbD.Size = new System.Drawing.Size(520, 89);
+            this.pbD.Size = new System.Drawing.Size(390, 72);
             this.pbD.TabIndex = 11;
             this.pbD.TabStop = false;
             this.pbD.Click += new System.EventHandler(this.pbD_Click);
             // 
             // pbEncabezadoPregunta
             // 
-            this.pbEncabezadoPregunta.Location = new System.Drawing.Point(40, 33);
+            this.pbEncabezadoPregunta.Location = new System.Drawing.Point(30, 27);
+            this.pbEncabezadoPregunta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbEncabezadoPregunta.Name = "pbEncabezadoPregunta";
-            this.pbEncabezadoPregunta.Size = new System.Drawing.Size(1002, 224);
+            this.pbEncabezadoPregunta.Size = new System.Drawing.Size(752, 182);
             this.pbEncabezadoPregunta.TabIndex = 12;
             this.pbEncabezadoPregunta.TabStop = false;
             // 
             // pbSiguiente
             // 
-            this.pbSiguiente.Location = new System.Drawing.Point(897, 471);
+            this.pbSiguiente.Location = new System.Drawing.Point(673, 383);
+            this.pbSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbSiguiente.Name = "pbSiguiente";
-            this.pbSiguiente.Size = new System.Drawing.Size(145, 69);
+            this.pbSiguiente.Size = new System.Drawing.Size(109, 56);
             this.pbSiguiente.TabIndex = 13;
             this.pbSiguiente.TabStop = false;
             this.pbSiguiente.Click += new System.EventHandler(this.pbSiguiente_Click);
             // 
             // pbVerificar
             // 
-            this.pbVerificar.Location = new System.Drawing.Point(897, 473);
+            this.pbVerificar.Location = new System.Drawing.Point(673, 384);
+            this.pbVerificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbVerificar.Name = "pbVerificar";
-            this.pbVerificar.Size = new System.Drawing.Size(145, 69);
+            this.pbVerificar.Size = new System.Drawing.Size(109, 56);
             this.pbVerificar.TabIndex = 14;
             this.pbVerificar.TabStop = false;
             this.pbVerificar.Click += new System.EventHandler(this.pbVerificar_Click);
             // 
             // Texto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbVerificar);
             this.Controls.Add(this.pbSiguiente);
             this.Controls.Add(this.pbEncabezadoPregunta);
@@ -225,8 +233,9 @@
             this.Controls.Add(this.btnOpcionA);
             this.Controls.Add(this.lblEnunciado);
             this.Controls.Add(this.lblNumero);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Texto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Kah00t";
             this.Load += new System.EventHandler(this.Texto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbA)).EndInit();
