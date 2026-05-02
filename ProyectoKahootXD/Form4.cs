@@ -133,7 +133,7 @@ namespace ProyectoKahootXD
                 MessageBox.Show("Error al guardar: " + ex.Message);
             }
 
-            Form2 menu = new Form2();
+            Menu menu = new Menu();
             menu.Location = this.Location;
             menu.Show();
             this.Close();

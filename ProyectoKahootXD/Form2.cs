@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,16 @@ using System.Windows.Forms;
 using static ProyectoKahootXD.Asset;
 using static ProyectoKahootXD.Preguntas;
 using static ProyectoKahootXD.Respuesta;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoKahootXD
 {
     public partial class Form2 : FormBase
     {
-        public Form2()
+        int bandera;
+        public Form2(int bandera_estilo)
         {
+            this.bandera = bandera_estilo;
             InitializeComponent();
             this.InicializarEscalado();
 
@@ -115,7 +119,14 @@ namespace ProyectoKahootXD
         {
             Preguntas.preguntasRealizadas.Clear();
             Preguntas.categoriaJugada = "Deportes";
-            LanzarJuego(3);
+            if (bandera == 1)
+            {
+                LanzarJuego(3);
+            } else
+            {
+
+            }
+      
         }
 
         private void picCiencia_Click(object sender, EventArgs e)
@@ -139,30 +150,50 @@ namespace ProyectoKahootXD
             Respuesta respuestas = new Respuesta();
             pregunta.getpregunta(idCat);
             respuestas.getRespuestas(pregunta.idPrin);
-
-            switch (pregunta.tipoPrin)
-            {
-                case "Texto":
-                    /* Texto sigT = new Texto(pregunta, respuestas, contador, respCorr);
-                     sigT.Location = this.Location;
-                     sigT.Show();*/
-                    NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
-                    break;
-                case "Imagen":
-                    /* Form1 sig1 = new Form1(pregunta, respuestas, contador, respCorr);
-                     sig1.Location = this.Location;
-                     sig1.Show();*/
-                    NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
-                    break;
-                case "Audio":
-                    /* Form3 sig3 = new Form3(pregunta, respuestas, contador, respCorr);
-                     sig3.Location = this.Location;
-                     sig3.Show();*/
-                    NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
-                    break;
-            }
+            
+            //Un jugador
+                switch (pregunta.tipoPrin)
+                {
+                    case "Texto":
+                        NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
+                        break;
+                    case "Imagen":
+                        NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
+                        break;
+                    case "Audio":
+                        NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
+                        break;
+                }
             this.Hide();
         }
+
+        private void LanzarMultijugador(int idCat)
+        {
+            string query = "INSERT INTO historial (categoria_elegida) VALUES (@categoria_elegida)";
+            Conexion conexion = new Conexion();
+            MySqlConnection con = conexion.getConexion();
+            using (MySqlCommand cmd = new MySqlCommand(query, con))
+            {
+
+                cmd.Parameters.AddWithValue("@usuario",idCat);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Usuario guardado con éxito");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message);
+                }
+
+
+                //seria ir a la seleccion aleatoria
+
+            }
+        }
+
+
 
         // --- EFECTOS VISUALES ---
         private void picHistoria_MouseEnter(object sender, EventArgs e) { picHistoria.Image = Properties.Resources.historia; }
@@ -203,7 +234,13 @@ namespace ProyectoKahootXD
             {
                 StringFormat format = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
                 Rectangle areaTop = new Rectangle(0, 0, picBanner.Width, picBanner.Height / 2);
-                g.DrawString("¡Bienvenido a nuestro juego!", fontTitulo, Brushes.White, areaTop, format);
+                if (bandera == 1)
+                {
+                    g.DrawString("¡Bienvenido a nuestro juego!", fontTitulo, Brushes.White, areaTop, format);
+                }else if (bandera == 2)
+                {
+                    g.DrawString("Selecciona una Categoria!", fontTitulo, Brushes.White, areaTop, format);
+                }
             }
 
             using (Font fontSubtitulo = new Font("Segoe UI", 16, FontStyle.Regular))

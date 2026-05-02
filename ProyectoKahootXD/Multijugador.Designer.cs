@@ -30,10 +30,8 @@
         {
             this.pbEncabezado = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pbHost = new System.Windows.Forms.PictureBox();
             this.pbJoin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbEncabezado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJoin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,19 +51,9 @@
             this.textBox1.Size = new System.Drawing.Size(646, 34);
             this.textBox1.TabIndex = 1;
             // 
-            // pbHost
-            // 
-            this.pbHost.Location = new System.Drawing.Point(70, 281);
-            this.pbHost.Name = "pbHost";
-            this.pbHost.Size = new System.Drawing.Size(285, 132);
-            this.pbHost.TabIndex = 2;
-            this.pbHost.TabStop = false;
-            this.pbHost.Click += new System.EventHandler(this.pbHost_Click);
-            this.pbHost.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbHost_MouseDoubleClick);
-            // 
             // pbJoin
             // 
-            this.pbJoin.Location = new System.Drawing.Point(438, 281);
+            this.pbJoin.Location = new System.Drawing.Point(237, 283);
             this.pbJoin.Name = "pbJoin";
             this.pbJoin.Size = new System.Drawing.Size(278, 132);
             this.pbJoin.TabIndex = 3;
@@ -80,14 +68,12 @@
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbJoin);
-            this.Controls.Add(this.pbHost);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pbEncabezado);
             this.Name = "Multijugador";
             this.Text = "Kah00t";
             this.Load += new System.EventHandler(this.Multijugador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbEncabezado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbJoin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,7 +84,6 @@
 
         private System.Windows.Forms.PictureBox pbEncabezado;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pbHost;
         private System.Windows.Forms.PictureBox pbJoin;
     }
 }

@@ -118,7 +118,7 @@ namespace ProyectoKahootXD
 
         private void pbJugador_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            NavegarA(new Form2());
+            NavegarA(new Form2(1));
         }
 
         private void pbSalir_MouseDoubleClick(object sender, MouseEventArgs e)

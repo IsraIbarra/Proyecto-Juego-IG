@@ -24,6 +24,7 @@ namespace ProyectoKahootXD
         public Texto(Preguntas preg, Respuesta resps, int numeroActual, int respb)
         {
             InitializeComponent();
+            this.pbEncabezadoPregunta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             this.InicializarEscalado();
             this.objetoPregunta = preg;
             this.objetoRespuesta = resps;
@@ -181,15 +182,23 @@ namespace ProyectoKahootXD
         }
         private void DibujarEncabezado(PictureBox pb, int numeroPregunta, string enunciado)
         {
+            // 1. Liberar la imagen anterior para evitar que el programa consuma demasiada RAM
+            if (pb.Image != null)
+            {
+                pb.Image.Dispose();
+            }
+
+            // 2. Crear un nuevo Bitmap con el tamaño que el PictureBox tiene EN ESTE MOMENTO
+            // Esto es vital para que la imagen no se vea estirada o pequeña al redimensionar
             Bitmap bmp = new Bitmap(pb.Width, pb.Height);
 
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                // Calidad de renderizado
+                // Calidad de renderizado para que el texto se vea suave
                 g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
                 g.SmoothingMode = SmoothingMode.AntiAlias;
 
-
+                // Fondo degradado que ahora ocupa todo el ancho dinámico del bmp
                 using (LinearGradientBrush brushFondo = new LinearGradientBrush(
                     new Point(0, 0), new Point(0, bmp.Height),
                     Color.FromArgb(10, 10, 20),
@@ -198,33 +207,33 @@ namespace ProyectoKahootXD
                     g.FillRectangle(brushFondo, 0, 0, bmp.Width, bmp.Height);
                 }
 
+                // Dibujar el contador (PREGUNTA X DE 12)
                 string textoNumero = $"PREGUNTA {numeroPregunta} DE 12";
                 using (Font fuenteNumero = new Font("Arial", 11, FontStyle.Bold))
                 {
-
                     StringFormat formatoNumero = new StringFormat();
-                    formatoNumero.Alignment = StringAlignment.Far;
+                    formatoNumero.Alignment = StringAlignment.Far; // Alineado a la derecha
                     formatoNumero.LineAlignment = StringAlignment.Near;
 
+                    // Usamos bmp.Width para que el texto siempre se mantenga en la esquina derecha
                     Rectangle rectNumero = new Rectangle(10, 10, bmp.Width - 20, 25);
                     g.DrawString(textoNumero, fuenteNumero, new SolidBrush(colorTextoSecundario), rectNumero, formatoNumero);
                 }
 
-
+                // Dibujar el enunciado de la pregunta
                 using (Font fuenteEnunciado = new Font("Segoe UI", 16, FontStyle.Bold))
                 {
-                    // Lo centramos en el resto del PictureBox
                     StringFormat formatoEnunciado = new StringFormat();
                     formatoEnunciado.Alignment = StringAlignment.Center;
                     formatoEnunciado.LineAlignment = StringAlignment.Center;
 
-
+                    // El área de la pregunta se centra automáticamente basándose en el nuevo ancho
                     Rectangle areaEnunciado = new Rectangle(15, 35, bmp.Width - 30, bmp.Height - 45);
-
                     g.DrawString(enunciado, fuenteEnunciado, Brushes.White, areaEnunciado, formatoEnunciado);
                 }
             }
 
+            // Asignamos la nueva imagen generada al PictureBox
             pb.Image = bmp;
         }
 
@@ -310,9 +319,24 @@ namespace ProyectoKahootXD
             }   
         }
 
-        private void pbEncabezadoPregunta_Click(object sender, EventArgs e)
-        {
+        private void pbEncabezadoPregunta_Click(object sender, EventArgs e){ }
 
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            // Añadimos "&& objetoPregunta != null" para evitar el error de referencia nula
+            if (this.pbEncabezadoPregunta != null && this.objetoPregunta != null)
+            {
+                // 1. Ajustamos el tamaño del PictureBox al ancho de la ventana
+                this.pbEncabezadoPregunta.Width = this.ClientSize.Width - 40;
+                this.pbEncabezadoPregunta.Left = 20;
+
+                // 2. Solo intentamos dibujar si el objeto ya tiene información
+                DibujarEncabezado(pbEncabezadoPregunta, contadorPreguntas, objetoPregunta.enunPrin);
+            }
+
+            this.Invalidate();
         }
     }
 }

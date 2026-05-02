@@ -13,7 +13,7 @@ namespace ProyectoKahootXD
     {
         private MySqlConnection conexion;
         private string server = "localhost";
-        private string database = "trivia";
+        private string database = "trivia_v2";
         private string user = "root";
         private string password = "root";
         private string cadenaConexion;

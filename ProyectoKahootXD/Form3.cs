@@ -33,6 +33,7 @@ namespace ProyectoKahootXD
         public Form3(Preguntas preg, Respuesta resps, int actual,int respb)
         {
             InitializeComponent();
+            this.pbEncabezado.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             this.InicializarEscalado();
             this.pregunta = preg;
             this.respuestas = resps;
@@ -146,14 +147,19 @@ namespace ProyectoKahootXD
 
         private void DibujarEncabezado(PictureBox pb, int numeroPregunta, string enunciado)
         {
+            if (pb.Image != null)
+            {
+                pb.Image.Dispose();
+            }
+
+            
             Bitmap bmp = new Bitmap(pb.Width, pb.Height);
 
             using (Graphics g = Graphics.FromImage(bmp))
             {
-                // Calidad de renderizado
+                
                 g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
                 g.SmoothingMode = SmoothingMode.AntiAlias;
-
 
                 using (LinearGradientBrush brushFondo = new LinearGradientBrush(
                     new Point(0, 0), new Point(0, bmp.Height),
@@ -163,33 +169,33 @@ namespace ProyectoKahootXD
                     g.FillRectangle(brushFondo, 0, 0, bmp.Width, bmp.Height);
                 }
 
+                // Dibujar el contador (PREGUNTA X DE 12)
                 string textoNumero = $"PREGUNTA {numeroPregunta} DE 12";
                 using (Font fuenteNumero = new Font("Arial", 11, FontStyle.Bold))
                 {
-
                     StringFormat formatoNumero = new StringFormat();
-                    formatoNumero.Alignment = StringAlignment.Far;
+                    formatoNumero.Alignment = StringAlignment.Far; // Alineado a la derecha
                     formatoNumero.LineAlignment = StringAlignment.Near;
 
+                    // Usamos bmp.Width para que el texto siempre se mantenga en la esquina derecha
                     Rectangle rectNumero = new Rectangle(10, 10, bmp.Width - 20, 25);
                     g.DrawString(textoNumero, fuenteNumero, new SolidBrush(colorTextoSecundario), rectNumero, formatoNumero);
                 }
 
-
+                // Dibujar el enunciado de la pregunta
                 using (Font fuenteEnunciado = new Font("Segoe UI", 16, FontStyle.Bold))
                 {
-
                     StringFormat formatoEnunciado = new StringFormat();
                     formatoEnunciado.Alignment = StringAlignment.Center;
                     formatoEnunciado.LineAlignment = StringAlignment.Center;
 
-
+                    // El área de la pregunta se centra automáticamente basándose en el nuevo ancho
                     Rectangle areaEnunciado = new Rectangle(15, 35, bmp.Width - 30, bmp.Height - 45);
-
                     g.DrawString(enunciado, fuenteEnunciado, Brushes.White, areaEnunciado, formatoEnunciado);
                 }
             }
 
+            // Asignamos la nueva imagen generada al PictureBox
             pb.Image = bmp;
         }
 
@@ -316,6 +322,24 @@ namespace ProyectoKahootXD
                     break;
                     
             }
+        }
+
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            if (this.pbEncabezado != null)
+            {
+                
+                this.pbEncabezado.Width = this.ClientSize.Width - 40;
+                this.pbEncabezado.Left = 20;
+
+                
+                DibujarEncabezado(pbEncabezado, contadorpreg, pregunta.enunPrin);
+            }
+
+            this.Invalidate();
         }
 
     }

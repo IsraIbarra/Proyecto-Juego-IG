@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace ProyectoKahootXD
 {
 
@@ -55,8 +57,8 @@ namespace ProyectoKahootXD
         {
             
             DibujarEncabezado(pbEncabezado);
-            DibujarBoton("Un jugador", pbHost);
-            DibujarBoton("Multijugador", pbJoin);
+            //DibujarBoton("Un jugador", pbHost);
+            DibujarBoton("Entrar", pbJoin);
 
         }
 
@@ -174,7 +176,7 @@ namespace ProyectoKahootXD
 
         {
 
-            pbHost.BackColor = Color.Transparent; pbHost.Padding = new Padding(0);
+            //pbHost.BackColor = Color.Transparent; pbHost.Padding = new Padding(0);
 
             pbJoin.BackColor = Color.Transparent; pbJoin.Padding = new Padding(0);
 
@@ -206,7 +208,7 @@ namespace ProyectoKahootXD
 
 
 
-                DibujarBoton("Host", pbHost);
+                //DibujarBoton("Host", pbHost);
 
                 DibujarBoton("Unirse", pbJoin);
 
@@ -218,7 +220,7 @@ namespace ProyectoKahootXD
 
 
 
-        private void pbHost_Click(object sender, EventArgs e) { MarcarSeleccion(pbHost); }
+        //private void pbHost_Click(object sender, EventArgs e) { MarcarSeleccion(pbHost); }
 
 
 
@@ -232,6 +234,33 @@ namespace ProyectoKahootXD
         }
         private void pbJoin_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
+            if (textBox1.Text.Length > 0)
+            {
+                string query = "INSERT INTO historial (usuario) VALUES (@usuario)";
+                Conexion conexion = new Conexion();
+                MySqlConnection con = conexion.getConexion();
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@usuario", textBox1.Text);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        //MessageBox.Show("Usuario guardado con éxito");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar: " + ex.Message);
+                    }
+                }
+
+                NavegarA(new Form2(2));
+            }else
+            {
+                MessageBox.Show("inserte un nombre porfavor!");
+            }
         }
 
 
