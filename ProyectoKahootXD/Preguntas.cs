@@ -1,10 +1,5 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static ProyectoKahootXD.Conexion;
 
 namespace ProyectoKahootXD
 {
@@ -16,46 +11,29 @@ namespace ProyectoKahootXD
         public string tipoPrin = "";
         public int idPrin = 0;
 
-       
         public static List<int> preguntasRealizadas = new List<int>();
         public static string categoriaJugada = "";
-
-        Conexion conexion = new Conexion();
+        public static string NombreUsuario = "Player1"; // Añadido para el multijugador
 
         public void getpregunta(int categoria)
         {
-            MySqlConnection con = conexion.getConexion();
-
-           
-            string query = "SELECT categoria_id, numero_pregunta, id, enunciado, tipo_respuesta FROM preguntas WHERE categoria_id = " + categoria.ToString();
-
-            
-            if (preguntasRealizadas.Count > 0)
+            // Leemos de la lista descargada en lugar de MySQL
+            if (ServidorAPI.RondaActual != null && ServidorAPI.RondaActual.Count > 0)
             {
-                string excluidas = string.Join(",", preguntasRealizadas);
-                query += " AND id NOT IN (" + excluidas + ")";
+                // Buscamos la primera pregunta de la lista que no se haya jugado aún
+                var datosPregunta = ServidorAPI.RondaActual.Find(p => !preguntasRealizadas.Contains(p.id));
+
+                if (datosPregunta != null)
+                {
+                    this.idPrin = datosPregunta.id;
+                    this.enunPrin = datosPregunta.enunciado;
+                    this.tipoPrin = datosPregunta.tipo_respuesta;
+                    this.catPrin = categoria;
+
+                    // Registramos que ya salió para no repetirla en la siguiente ventana
+                    preguntasRealizadas.Add(this.idPrin);
+                }
             }
-
-            
-            query += " ORDER BY rand() LIMIT 1;";
-
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.Read())
-            {
-                catPrin = reader.GetInt32("categoria_id");
-                numPrin = reader.GetInt32("numero_pregunta");
-                idPrin = reader.GetInt32("id");
-                enunPrin = reader.GetString("enunciado");
-                tipoPrin = reader.GetString("tipo_respuesta");
-
-                
-                preguntasRealizadas.Add(idPrin);
-            }
-
-            reader.Close();
-            con.Close();
         }
     }
 }

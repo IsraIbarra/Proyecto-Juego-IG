@@ -1,25 +1,17 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ProyectoKahootXD.Asset;
-using static ProyectoKahootXD.Preguntas;
-using static ProyectoKahootXD.Respuesta;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading.Tasks;
 
 namespace ProyectoKahootXD
 {
     public partial class Form2 : FormBase
     {
         int bandera;
+        ServidorAPI api = new ServidorAPI();
+
         public Form2(int bandera_estilo)
         {
             this.bandera = bandera_estilo;
@@ -30,172 +22,128 @@ namespace ProyectoKahootXD
             picHistoria.Image = Properties.Resources.historia1;
             picMusica.Image = Properties.Resources.musica;
             picGeografia.Image = Properties.Resources.geografia;
-
         }
+
         int contador = 1;
-        int respCorr = 0; // Lo bajé a 0 para que el conteo sea real desde el inicio
-        //private string textoParaDibujar = "prueba";
-        private string textoParaDibujar = "";
+        int respCorr = 0;
 
-        private void button_Historia_Click(object sender, EventArgs e)
+        private void button_Historia_Click(object sender, EventArgs e) { PrepararCategoria(1, "Historia"); }
+        private void button_Musica_Click(object sender, EventArgs e) { PrepararCategoria(2, "Música"); }
+        private void button_Deportes_Click(object sender, EventArgs e) { PrepararCategoria(3, "Deportes"); }
+        private void button_Ciencia_Click(object sender, EventArgs e) { PrepararCategoria(4, "Ciencia"); }
+        private void button_Cine_Click(object sender, EventArgs e) { PrepararCategoria(5, "Cine"); }
+        private void button_Geografia_Click(object sender, EventArgs e) { PrepararCategoria(6, "Geografía"); }
+        private void button_Computacion_Click(object sender, EventArgs e) { PrepararCategoria(7, "Computación"); }
+
+        private void picHistoria_Click(object sender, EventArgs e) { PrepararCategoria(1, "Historia"); }
+        private void picMusica_Click(object sender, EventArgs e) { PrepararCategoria(2, "Música"); }
+        private void picGeografia_Click(object sender, EventArgs e) { PrepararCategoria(6, "Geografía"); }
+        private void picCine_Click(object sender, EventArgs e) { PrepararCategoria(5, "Cine"); }
+        private void picDeportes_Click(object sender, EventArgs e) { PrepararCategoria(3, "Deportes"); }
+        private void picCiencia_Click(object sender, EventArgs e) { PrepararCategoria(4, "Ciencia"); }
+        private void picComputacion_Click(object sender, EventArgs e) { PrepararCategoria(7, "Computación"); }
+
+        private void PrepararCategoria(int idCat, string nombreCat)
         {
             Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Historia";
-            LanzarJuego(1);
+            Preguntas.categoriaJugada = nombreCat;
+            LanzarJuego(idCat);
         }
 
-        private void button_Musica_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Música";
-            LanzarJuego(2);
-        }
+        // --- EL NUEVO LANZADOR ASÍNCRONO ---
+        /* private async void LanzarJuego(int idCat)
+         {
+             try
+             {
+                 // Descargamos todas las preguntas desde la API de Python
+                 await api.DescargarRonda(idCat);
 
-        private void button_Deportes_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Deportes";
-            LanzarJuego(3);
-        }
+                 if (ServidorAPI.RondaActual == null || ServidorAPI.RondaActual.Count == 0)
+                 {
+                     MessageBox.Show("No se pudieron cargar las preguntas del servidor.");
+                     return;
+                 }
 
-        private void button_Ciencia_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Ciencia";
-            LanzarJuego(4);
-        }
+                 // Generamos la primera pregunta
+                 Preguntas pregunta = new Preguntas();
+                 Respuesta respuestas = new Respuesta();
+                 pregunta.getpregunta(idCat);
+                 respuestas.getRespuestas(pregunta.idPrin);
 
-        private void button_Cine_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Cine";
-            LanzarJuego(5);
-        }
+                 // Lanzamos el formulario correspondiente a la primera pregunta
+                 switch (pregunta.tipoPrin)
+                 {
+                     case "Texto":
+                         NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
+                         break;
+                     case "Imagen":
+                         NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
+                         break;
+                     case "Audio":
+                         NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
+                         break;
+                 }
+                 this.Hide();
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Error de conexión: " + ex.Message);
+             }
+         }*/
 
-        private void button_Geografia_Click(object sender, EventArgs e)
+        private async void LanzarJuego(int idCat)
         {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Geografía";
-            LanzarJuego(6);
-        }
-
-        private void button_Computacion_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Computación";
-            LanzarJuego(7);
-        }
-
-        // Métodos de las imágenes
-        private void picHistoria_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Historia";
-            LanzarJuego(1);
-        }
-
-        private void picMusica_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Música";
-            LanzarJuego(2);
-        }
-
-        private void picGeografia_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Geografía";
-            LanzarJuego(6);
-        }
-
-        private void picCine_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Cine";
-            LanzarJuego(5);
-        }
-
-        private void picDeportes_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Deportes";
-            if (bandera == 1)
+            try
             {
-                LanzarJuego(3);
-            } else
-            {
+                // --- CASO MULTIJUGADOR (bandera == 2) ---
+                if (this.bandera == 2)
+                {
+                    // 1. Avisamos al servidor qué categoría votamos/elegimos
+                    // Podríamos enviar un mensaje por socket para que el servidor lo registre
+                    await SocketManager.EnviarMensaje($"VOTE_CATEGORY|{idCat}");
 
-            }
-      
-        }
+                    // 2. Navegamos a la pantalla de espera (Lobby)
+                    // Aquí tus compañeros deben crear el Form "EsperandoJugadores"
+                    // NavegarA(new EsperandoJugadores(idCat)); 
 
-        private void picCiencia_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Ciencia";
-            LanzarJuego(4);
-        }
+                    // Por ahora, como ejemplo, podrías mandar un mensaje:
+                    MessageBox.Show($"Categoría {Preguntas.categoriaJugada} seleccionada. Esperando a los demás...");
+                    return; // Detenemos aquí, no descargamos preguntas todavía
+                }
 
-        private void picComputacion_Click(object sender, EventArgs e)
-        {
-            Preguntas.preguntasRealizadas.Clear();
-            Preguntas.categoriaJugada = "Computación";
-            LanzarJuego(7);
-        }
+                // --- CASO UN JUGADOR (bandera == 1) ---
+                // Tu lógica original se queda aquí:
+                await api.DescargarRonda(idCat);
 
-        // Método auxiliar para no repetir el switch en todos lados
-        private void LanzarJuego(int idCat)
-        {
-            Preguntas pregunta = new Preguntas();
-            Respuesta respuestas = new Respuesta();
-            pregunta.getpregunta(idCat);
-            respuestas.getRespuestas(pregunta.idPrin);
-            
-            //Un jugador
+                if (ServidorAPI.RondaActual == null || ServidorAPI.RondaActual.Count == 0)
+                {
+                    MessageBox.Show("No se pudieron cargar las preguntas del servidor.");
+                    return;
+                }
+
+                Preguntas pregunta = new Preguntas();
+                Respuesta respuestas = new Respuesta();
+                pregunta.getpregunta(idCat);
+                respuestas.getRespuestas(pregunta.idPrin);
+
                 switch (pregunta.tipoPrin)
                 {
-                    case "Texto":
-                        NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
-                        break;
-                    case "Imagen":
-                        NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
-                        break;
-                    case "Audio":
-                        NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
-                        break;
+                    case "Texto": NavegarA(new Texto(pregunta, respuestas, contador, respCorr)); break;
+                    case "Imagen": NavegarA(new Form1(pregunta, respuestas, contador, respCorr)); break;
+                    case "Audio": NavegarA(new Form3(pregunta, respuestas, contador, respCorr)); break;
                 }
-            this.Hide();
-        }
-
-        private void LanzarMultijugador(int idCat)
-        {
-            string query = "INSERT INTO historial (categoria_elegida) VALUES (@categoria_elegida)";
-            Conexion conexion = new Conexion();
-            MySqlConnection con = conexion.getConexion();
-            using (MySqlCommand cmd = new MySqlCommand(query, con))
+                this.Hide();
+            }
+            catch (Exception ex)
             {
-
-                cmd.Parameters.AddWithValue("@usuario",idCat);
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    //MessageBox.Show("Usuario guardado con éxito");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar: " + ex.Message);
-                }
-
-
-                //seria ir a la seleccion aleatoria
-
+                MessageBox.Show("Error de conexión: " + ex.Message);
             }
         }
 
 
 
-        // --- EFECTOS VISUALES ---
+
+        // --- EFECTOS VISUALES INTACTOS ---
         private void picHistoria_MouseEnter(object sender, EventArgs e) { picHistoria.Image = Properties.Resources.historia; }
         private void picHistoria_MouseLeave(object sender, EventArgs e) { picHistoria.Image = Properties.Resources.historia1; }
         private void picMusica_MouseEnter(object sender, EventArgs e) { picMusica.Image = Properties.Resources.musica1; }
@@ -219,8 +167,7 @@ namespace ProyectoKahootXD
 
             using (LinearGradientBrush brushFondo = new LinearGradientBrush(
                 new Point(0, 0), new Point(0, picBanner.Height),
-                Color.FromArgb(15, 15, 30),
-                Color.FromArgb(35, 35, 60)))
+                Color.FromArgb(15, 15, 30), Color.FromArgb(35, 35, 60)))
             {
                 g.FillRectangle(brushFondo, 0, 0, picBanner.Width, picBanner.Height);
             }
@@ -234,13 +181,8 @@ namespace ProyectoKahootXD
             {
                 StringFormat format = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Far };
                 Rectangle areaTop = new Rectangle(0, 0, picBanner.Width, picBanner.Height / 2);
-                if (bandera == 1)
-                {
-                    g.DrawString("¡Bienvenido a nuestro juego!", fontTitulo, Brushes.White, areaTop, format);
-                }else if (bandera == 2)
-                {
-                    g.DrawString("Selecciona una Categoria!", fontTitulo, Brushes.White, areaTop, format);
-                }
+                if (bandera == 1) g.DrawString("¡Bienvenido a nuestro juego!", fontTitulo, Brushes.White, areaTop, format);
+                else if (bandera == 2) g.DrawString("Selecciona una Categoría!", fontTitulo, Brushes.White, areaTop, format);
             }
 
             using (Font fontSubtitulo = new Font("Segoe UI", 16, FontStyle.Regular))
@@ -251,21 +193,15 @@ namespace ProyectoKahootXD
             }
         }
 
-        // Otros eventos vacíos
-        private void Form2_Load(object sender, EventArgs e) { }
-        private void label1_Click(object sender, EventArgs e) { }
-        private void picBanner_Click(object sender, EventArgs e) { }
-        private void button1_Click(object sender, EventArgs e) { }
-
-
         protected override void OnResize(EventArgs e)
         {
-            base.OnResize(e); 
- 
-            if (picBanner != null)
-            {
-                picBanner.Invalidate();
-            }
+            base.OnResize(e);
+            if (picBanner != null) picBanner.Invalidate();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            // Lo dejamos vacío, solo sirve para que el Designer no se queje
         }
     }
 }

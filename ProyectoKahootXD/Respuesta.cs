@@ -1,10 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace ProyectoKahootXD
 {
@@ -20,50 +14,26 @@ namespace ProyectoKahootXD
         public int respID_D = 0;
         public int respID_correcta = 0;
 
-        Conexion conexion = new Conexion();
-
         public void getRespuestas(int idPregunta)
         {
-            string query = "SELECT id, letra, contenido, correcta FROM opciones WHERE pregunta_id = @id";
+            // Buscamos la pregunta en nuestra ronda actual en memoria
+            var preguntaEnLista = ServidorAPI.RondaActual.Find(p => p.id == idPregunta);
 
-            MySqlCommand cmd = new MySqlCommand(query, conexion.getConexion());
-            cmd.Parameters.AddWithValue("@id", idPregunta);
-
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            if (preguntaEnLista != null)
             {
-                string letra = reader.GetString("letra");
+                foreach (var opt in preguntaEnLista.opciones)
+                {
+                    if (opt.letra == "a") { resp_A = opt.contenido; respID_A = opt.id; }
+                    else if (opt.letra == "b") { resp_B = opt.contenido; respID_B = opt.id; }
+                    else if (opt.letra == "c") { resp_C = opt.contenido; respID_C = opt.id; }
+                    else if (opt.letra == "d") { resp_D = opt.contenido; respID_D = opt.id; }
 
-                if (letra == "a")
-                {
-                    respID_A = reader.GetInt32("id");
-                    resp_A = reader.GetString("contenido");
-                }
-                else if (letra == "b")
-                {
-                    respID_B = reader.GetInt32("id");
-                    resp_B = reader.GetString("contenido");
-                }
-                else if (letra == "c")
-                {
-                    respID_C = reader.GetInt32("id");
-                    resp_C = reader.GetString("contenido");
-                }
-                else if (letra == "d")
-                {
-                    respID_D = reader.GetInt32("id");
-                    resp_D = reader.GetString("contenido");
-                }
-
-                if (reader.GetInt32("correcta") == 1)
-                {
-                    respID_correcta = reader.GetInt32("id");
+                    if (opt.correcta == 1)
+                    {
+                        respID_correcta = opt.id;
+                    }
                 }
             }
-
-            reader.Close();
-            conexion.desconexion();
         }
     }
 }

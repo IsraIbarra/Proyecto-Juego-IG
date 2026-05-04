@@ -10,11 +10,18 @@ namespace ProyectoKahootXD
         private Dictionary<Control, Rectangle> controlesOriginales = new Dictionary<Control, Rectangle>();
         private Size tamañoOriginalForm;
 
+
         public FormBase()
         {
+
             this.BackColor = Color.FromArgb(10, 10, 20);
             this.DoubleBuffered = true;
             this.Resize += FormBase_Resize;
+
+            this.Load += (s, e) => {
+                this.Size = new Size(1000, 700);
+                this.CenterToScreen();
+            };
         }
 
         public void InicializarEscalado()

@@ -232,34 +232,79 @@ namespace ProyectoKahootXD
         {
 
         }
-        private void pbJoin_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        /*  private void pbJoin_MouseDoubleClick(object sender, MouseEventArgs e)
+          {
 
-            if (textBox1.Text.Length > 0)
+              if (textBox1.Text.Length > 0)
+              {
+                  string query = "INSERT INTO historial (usuario) VALUES (@usuario)";
+                  Conexion conexion = new Conexion();
+                  MySqlConnection con = conexion.getConexion();
+                  using (MySqlCommand cmd = new MySqlCommand(query, con))
+                  {
+
+                      cmd.Parameters.AddWithValue("@usuario", textBox1.Text);
+
+                      try
+                      {
+                          cmd.ExecuteNonQuery();
+                          MessageBox.Show("Usuario guardado con éxito");
+                      }
+                      catch (Exception ex)
+                      {
+                          MessageBox.Show("Error al guardar: " + ex.Message);
+                      }
+                      catch(Exception ex)
+                      {
+                          MessageBox.Show("error de conexion" + ex.Message);
+                      }
+                  }
+
+                  NavegarA(new Form2(2));
+              }else
+              {
+                  MessageBox.Show("inserte un nombre porfavor!");
+              }
+          }*/
+        private async void pbJoin_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
+                MessageBox.Show("¡Por favor, inserte un nombre de usuario!");
+                return;
+            }
+
+            string nombreUsuario = textBox1.Text;
+
+            try
+            {
+
                 string query = "INSERT INTO historial (usuario) VALUES (@usuario)";
                 Conexion conexion = new Conexion();
                 MySqlConnection con = conexion.getConexion();
+
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
-
-                    cmd.Parameters.AddWithValue("@usuario", textBox1.Text);
-
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        //MessageBox.Show("Usuario guardado con éxito");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al guardar: " + ex.Message);
-                    }
+                    cmd.Parameters.AddWithValue("@usuario", nombreUsuario);
+                  
+                    cmd.ExecuteNonQuery();
                 }
 
+
+                await SocketManager.Conectar(nombreUsuario);
+
+
                 NavegarA(new Form2(2));
-            }else
+            }
+            catch (MySqlException ex)
             {
-                MessageBox.Show("inserte un nombre porfavor!");
+                MessageBox.Show("Error en la base de datos: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Este catch atrapará errores de conexión al Socket (si el servidor está apagado)
+                MessageBox.Show("Error de conexión: " + ex.Message);
             }
         }
 
