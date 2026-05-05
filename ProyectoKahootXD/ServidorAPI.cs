@@ -16,7 +16,7 @@ namespace ProyectoKahootXD
         public async Task<List<PreguntaDTO>> DescargarRonda(int categoriaId)
         {
             // Recuerda cambiar 'localhost' por tu IP cuando juegues en red con otros
-            string url = $"http://127.0.0.1:8000/trivia/ronda/{categoriaId}";
+            string url = $"http://127.0.0.1:8000/trivia_v2/ronda/{categoriaId}";
             string response = await client.GetStringAsync(url);
 
             RondaActual = JsonConvert.DeserializeObject<List<PreguntaDTO>>(response);

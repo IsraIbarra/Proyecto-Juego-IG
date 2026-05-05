@@ -104,10 +104,10 @@ namespace ProyectoKahootXD
 
                     // 2. Navegamos a la pantalla de espera (Lobby)
                     // Aquí tus compañeros deben crear el Form "EsperandoJugadores"
-                    // NavegarA(new EsperandoJugadores(idCat)); 
+                    NavegarA(new SalaEspera());
 
                     // Por ahora, como ejemplo, podrías mandar un mensaje:
-                    MessageBox.Show($"Categoría {Preguntas.categoriaJugada} seleccionada. Esperando a los demás...");
+                    //MessageBox.Show($"Categoría {Preguntas.categoriaJugada} seleccionada. Esperando a los demás...");
                     return; // Detenemos aquí, no descargamos preguntas todavía
                 }
 

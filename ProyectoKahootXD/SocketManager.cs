@@ -3,7 +3,6 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProyectoKahootXD
 {
@@ -13,10 +12,13 @@ namespace ProyectoKahootXD
         public static ClientWebSocket WebSocketCliente = new ClientWebSocket();
         private static CancellationTokenSource cts = new CancellationTokenSource();
 
+        // 🔥 EVENTOS: Los Forms se van a suscribir a estos para escuchar al servidor
+        public static event Action<int, int> OnConteoActualizado; // Manda (TotalJugadores, Listos)
+        public static event Action<int> OnRuletaIniciada;         // Manda (IdCategoriaGanadora)
+
         /// <summary>
         /// Inicia la conexión con el servidor FastAPI
         /// </summary>
-        /// <param name="username">Nombre del usuario para el registro en el lobby</param>
         public static async Task Conectar(string username)
         {
             // Si ya está conectado, no intentamos conectar de nuevo
@@ -31,7 +33,7 @@ namespace ProyectoKahootXD
 
             try
             {
-                // URL de tu servidor FastAPI (ajusta la IP si pruebas en red local)
+                // URL de tu servidor FastAPI
                 Uri serverUri = new Uri($"ws://127.0.0.1:8000/ws/{username}");
 
                 // Establecer la conexión
@@ -68,15 +70,14 @@ namespace ProyectoKahootXD
                         // Convertir los bytes recibidos a texto
                         string mensaje = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
-                        // Aquí es donde puedes procesar los mensajes globales
-                        // Ejemplo: "COUNT|5|2" o "START_ROULETTE|1"
+                        // Mandamos el texto a procesar
                         ManejarMensajeServidor(mensaje);
                     }
                 }
             }
             catch (Exception)
             {
-                // Manejar desconexión inesperada aquí
+                // Manejar desconexión inesperada aquí (ej. si el servidor se apaga de golpe)
             }
         }
 
@@ -87,8 +88,6 @@ namespace ProyectoKahootXD
         {
             if (WebSocketCliente.State == WebSocketState.Open)
             {
-                //var bytes = Encoding.UTF8.GetBytes(mensaje);
-                //await WebSocketCliente.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, cts.Token);
                 byte[] buffer = Encoding.UTF8.GetBytes(mensaje);
                 await WebSocketCliente.SendAsync(
                     new ArraySegment<byte>(buffer),
@@ -99,11 +98,40 @@ namespace ProyectoKahootXD
             }
         }
 
+        /// <summary>
+        /// Procesa los mensajes que llegan desde Python y dispara los eventos
+        /// </summary>
+
+
+        public static int UltimosConectados = 0;
+        public static int UltimosListos = 0;
         private static void ManejarMensajeServidor(string mensaje)
         {
-            // Este método puede ser usado para disparar eventos que tus Forms escuchen
-            // Por ahora, solo sirve de puente para la lógica de tus compañeros
-            Console.WriteLine("Mensaje recibido del servidor: " + mensaje);
+            Console.WriteLine("[SocketManager] Mensaje del servidor: " + mensaje);
+            string[] partes = mensaje.Split('|');
+            if (partes.Length == 0) return;
+
+            // 1. Escuchar el conteo de jugadores
+            if (partes[0] == "COUNT" && partes.Length >= 3)
+            {
+                if (int.TryParse(partes[1], out int total) && int.TryParse(partes[2], out int listos))
+                {
+                    UltimosConectados = total;
+                    UltimosListos = listos;
+
+                    OnConteoActualizado?.Invoke(total, listos);
+                }
+            }
+            
+            else if (partes[0] == "START_ROULETTE" && partes.Length >= 2)
+            {
+                // Le agregamos .Trim() por si viene con espacios invisibles
+                if (int.TryParse(partes[1].Trim(), out int idCategoriaGanadora))
+                {
+                    // Disparamos el evento para que la Sala de Espera lo atrape
+                    OnRuletaIniciada?.Invoke(idCategoriaGanadora);
+                }
+            }
         }
 
         /// <summary>

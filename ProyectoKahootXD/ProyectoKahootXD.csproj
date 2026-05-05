@@ -135,6 +135,12 @@
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormRuleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRuleta.Designer.cs">
+      <DependentUpon>FormRuleta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Respuesta.cs" />
+    <Compile Include="SalaEspera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaEspera.Designer.cs">
+      <DependentUpon>SalaEspera.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServidorAPI.cs" />
     <Compile Include="SocketManager.cs" />
     <Compile Include="Texto.cs">
@@ -182,6 +194,9 @@
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRuleta.resx">
+      <DependentUpon>FormRuleta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +207,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaEspera.resx">
+      <DependentUpon>SalaEspera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Texto.resx">
       <DependentUpon>Texto.cs</DependentUpon>
