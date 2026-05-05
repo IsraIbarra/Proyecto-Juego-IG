@@ -128,9 +128,9 @@ namespace ProyectoKahootXD
 
                 switch (pregunta.tipoPrin)
                 {
-                    case "Texto": NavegarA(new Texto(pregunta, respuestas, contador, respCorr)); break;
-                    case "Imagen": NavegarA(new Form1(pregunta, respuestas, contador, respCorr)); break;
-                    case "Audio": NavegarA(new Form3(pregunta, respuestas, contador, respCorr)); break;
+                    case "Texto": NavegarA(new Texto(pregunta, respuestas, contador, respCorr,1)); break;
+                    case "Imagen": NavegarA(new Form1(pregunta, respuestas, contador, respCorr,1)); break;
+                    case "Audio": NavegarA(new Form3(pregunta, respuestas, contador, respCorr,1)); break;
                 }
                 this.Hide();
             }

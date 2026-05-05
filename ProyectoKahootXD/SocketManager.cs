@@ -12,9 +12,10 @@ namespace ProyectoKahootXD
         public static ClientWebSocket WebSocketCliente = new ClientWebSocket();
         private static CancellationTokenSource cts = new CancellationTokenSource();
 
-        // 🔥 EVENTOS: Los Forms se van a suscribir a estos para escuchar al servidor
         public static event Action<int, int> OnConteoActualizado; // Manda (TotalJugadores, Listos)
         public static event Action<int> OnRuletaIniciada;         // Manda (IdCategoriaGanadora)
+        public static event Action<string, int> OnGanadorAnunciado;
+        public static string UsuarioLogueado { get; set; } = "JugadorDesconocido";
 
         /// <summary>
         /// Inicia la conexión con el servidor FastAPI
@@ -130,6 +131,14 @@ namespace ProyectoKahootXD
                 {
                     // Disparamos el evento para que la Sala de Espera lo atrape
                     OnRuletaIniciada?.Invoke(idCategoriaGanadora);
+                }
+            }
+            else if (partes[0] == "WINNER" && partes.Length >= 3)
+            {
+                string nombresGanadores = partes[1];
+                if (int.TryParse(partes[2], out int puntajeGanador))
+                {
+                    OnGanadorAnunciado?.Invoke(nombresGanadores, puntajeGanador);
                 }
             }
         }

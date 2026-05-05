@@ -15,13 +15,14 @@ namespace ProyectoKahootXD
         int contadorPreguntas;
         int idResp = 0;
         int respsCorr;
+        int bandera;
 
         Color colorFondoOpcion = Color.FromArgb(26, 26, 46);
         Color colorSeleccion = Color.FromArgb(76, 175, 80);
         Color colorTextoPrimario = Color.White;
         Color colorTextoSecundario = Color.FromArgb(180, 180, 180);
 
-        public Texto(Preguntas preg, Respuesta resps, int numeroActual, int respb)
+        public Texto(Preguntas preg, Respuesta resps, int numeroActual, int respb,int bandera_estilo)
         {
             InitializeComponent();
             this.pbEncabezadoPregunta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -30,6 +31,7 @@ namespace ProyectoKahootXD
             this.objetoRespuesta = resps;
             this.contadorPreguntas = numeroActual;
             this.respsCorr = respb;
+            this.bandera = bandera_estilo;
         }
 
         private void Texto_Load(object sender, EventArgs e)
@@ -149,7 +151,7 @@ namespace ProyectoKahootXD
                 Form4 final = new Form4(respsCorr);
                 final.Show();
                 this.Close();*/
-                NavegarA(new Form4(respsCorr));
+                NavegarA(new Form4(respsCorr,bandera));
             }
         }
 
@@ -161,21 +163,21 @@ namespace ProyectoKahootXD
                     /*Texto siguiente = new Texto(p, r, contadorPreguntas, respsCorr);
                     siguiente.Location = this.Location;
                     siguiente.Show();*/
-                    NavegarA(new Texto(p, r, contadorPreguntas, respsCorr));
+                    NavegarA(new Texto(p, r, contadorPreguntas, respsCorr,bandera));
                     break;
 
                 case "Imagen":
                     /* Form1 sig1 = new Form1(p, r, contadorPreguntas, respsCorr);
                      sig1.Location = this.Location;
                      sig1.Show();*/
-                    NavegarA(new Form1(p, r, contadorPreguntas, respsCorr));
+                    NavegarA(new Form1(p, r, contadorPreguntas, respsCorr,bandera));
                     break;
 
                 case "Audio":
                     /* Form3 sig3 = new Form3(p, r, contadorPreguntas, respsCorr);
                      sig3.Location = this.Location;
                      sig3.Show();*/
-                    NavegarA(new Form3(p, r, contadorPreguntas, respsCorr));
+                    NavegarA(new Form3(p, r, contadorPreguntas, respsCorr,bandera));
                     break;
                 
             }
@@ -296,7 +298,7 @@ namespace ProyectoKahootXD
             DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
-        private void pbSiguiente_Click(object sender, EventArgs e)
+        private async void pbSiguiente_Click(object sender, EventArgs e)
         {
             this.contadorPreguntas++;
             if (contadorPreguntas <= 12)
@@ -310,14 +312,35 @@ namespace ProyectoKahootXD
                 AbrirSiguienteForm(nuevaPreg, nuevasResp);
                 this.Close();
             }
+            else if (this.bandera == 2)
+            {
+                SocketManager.OnGanadorAnunciado += RecibirGanador;
+
+                // 2. Le mandamos al servidor nuestro puntaje final (reemplaza "TuUsuario" con la variable de tu login real)
+                await SocketManager.EnviarMensaje($"FINISH|{SocketManager.UsuarioLogueado}|{respsCorr}");
+            }
             else
             {
                 //MessageBox.Show("Felicidades! Completaste el Quiz.");
-                Form4 final = new Form4(respsCorr);
+                Form4 final = new Form4(respsCorr, bandera);
                 final.Show();
                 this.Close();
-            }   
+            }
+            }
+        
+
+        private void RecibirGanador(string ganador, int puntajeMaximo)
+        {
+            this.Invoke((MethodInvoker)delegate {
+                // Nos desuscribimos para no dejar basura en memoria
+                SocketManager.OnGanadorAnunciado -= RecibirGanador;
+
+                // ¡AHORA SÍ! Abrimos la pantalla de resultados pasándole el nombre de oro
+                NavegarA(new Form4(respsCorr, 2, ganador));
+                this.Hide();
+            });
         }
+
 
         private void pbEncabezadoPregunta_Click(object sender, EventArgs e){ }
 

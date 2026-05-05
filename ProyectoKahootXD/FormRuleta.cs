@@ -106,8 +106,6 @@ namespace ProyectoKahootXD
             
             await LanzarJuego(idCategoriaGanadora);
         }
-
-        // --- EL DIBUJO DE TU COMPAÑERO SE QUEDA CASI INTACTO ---
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -194,13 +192,13 @@ namespace ProyectoKahootXD
                 switch (pregunta.tipoPrin)
                 {
                     case "Texto":
-                        NavegarA(new Texto(pregunta, respuestas, contador, respCorr));
+                        NavegarA(new Texto(pregunta, respuestas, contador, respCorr,2));
                         break;
                     case "Imagen":
-                        NavegarA(new Form1(pregunta, respuestas, contador, respCorr));
+                        NavegarA(new Form1(pregunta, respuestas, contador, respCorr,2));
                         break;
                     case "Audio":
-                        NavegarA(new Form3(pregunta, respuestas, contador, respCorr));
+                        NavegarA(new Form3(pregunta, respuestas, contador, respCorr,2));
                         break;
                 }
             }

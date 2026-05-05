@@ -276,9 +276,12 @@ namespace ProyectoKahootXD
             }
 
             string nombreUsuario = textBox1.Text;
+            SocketManager.UsuarioLogueado = nombreUsuario;
 
             try
             {
+                
+
 
                 string query = "INSERT INTO historial (usuario) VALUES (@usuario)";
                 Conexion conexion = new Conexion();

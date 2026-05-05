@@ -11,12 +11,19 @@ namespace ProyectoKahootXD
     {
         int respCorr = 0;
         Color colorTextoSecundario = Color.FromArgb(180, 180, 180);
+        int bandera;
 
-        public Form4(int respb)
+        // 1. Agregamos la variable para guardar al ganador
+        string nombreGanador;
+
+        // 2. Le agregamos el parámetro opcional 'ganador' al final
+        public Form4(int respb, int bandera_estilo, string ganador = "")
         {
             InitializeComponent();
             this.InicializarEscalado();
             this.respCorr = respb;
+            this.bandera = bandera_estilo;
+            this.nombreGanador = ganador; // Guardamos el nombre que nos pasen
 
             this.pbRestart.Click += new System.EventHandler(this.pbRestart_Click);
         }
@@ -88,6 +95,13 @@ namespace ProyectoKahootXD
 
                     // Dibujamos la categoría
                     g.DrawString($"CATEGORÍA: {categoria.ToUpper()}", fuenteCuerpo, new SolidBrush(Color.Cyan), 40, 170);
+
+                    // 3. SOLO SI ES MULTIJUGADOR (bandera == 2), dibujamos al ganador
+                    if (bandera == 2)
+                    {
+                        string textoGanador = string.IsNullOrEmpty(nombreGanador) ? "Pendiente..." : nombreGanador;
+                        g.DrawString($"GANADOR: {textoGanador.ToUpper()}", fuenteCuerpo, new SolidBrush(Color.Gold), 40, 230);
+                    }
                 }
             }
             pb.Image = bmp;

@@ -25,12 +25,13 @@ namespace ProyectoKahootXD
         Asset asset = new Asset();
         int contadorpreg;
         int respCorr ;
+        int bandera;
 
 
         Color colorTextoPrimario = Color.White;
         Color colorTextoSecundario = Color.FromArgb(180, 180, 180);
 
-        public Form1(Preguntas preg, Respuesta resps, int actual,int respb)
+        public Form1(Preguntas preg, Respuesta resps, int actual,int respb,int bandera_estilo)
         {
             InitializeComponent();
             this.pbEncabezadoPregunta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -40,6 +41,7 @@ namespace ProyectoKahootXD
             this.respuestas = resps;
             this.contadorpreg = actual;
             this.respCorr = respb;
+            this.bandera = bandera_estilo;
         }
         int checkbox_id = 0;
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -113,7 +115,7 @@ namespace ProyectoKahootXD
 
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void pictureBox1_load(object sender, EventArgs e) {}
@@ -254,7 +256,7 @@ namespace ProyectoKahootXD
             DibujarBotonControl(pbSiguiente, "Siguiente Pregunta", Color.FromArgb(R,G,B)); // Naranja
         }
 
-        private void pbSiguiente_Click(object sender, EventArgs e)
+        private async void pbSiguiente_Click(object sender, EventArgs e)
         {
             this.contadorpreg++;
             if (contadorpreg <= 12)
@@ -268,15 +270,32 @@ namespace ProyectoKahootXD
                 AbrirSiguienteForm(nuevaPreg, nuevasResp);
                 this.Close();
             }
+            else if (this.bandera == 2)
+            {
+                SocketManager.OnGanadorAnunciado += RecibirGanador;
+
+                // 2. Le mandamos al servidor nuestro puntaje final (reemplaza "TuUsuario" con la variable de tu login real)
+                await SocketManager.EnviarMensaje($"FINISH|{SocketManager.UsuarioLogueado}|{respCorr}");
+            }
             else
             {
                 //MessageBox.Show("Felicidades! Completaste el Quiz.");
-                /* Form4 final = new Form4(respCorr);
-                 final.Location = this.Location;
-                 final.Show();
-                 this.Close();*/
-                NavegarA(new Form4(respCorr));
+                Form4 final = new Form4(respCorr, bandera);
+                final.Show();
+                this.Close();
             }
+        }
+
+        private void RecibirGanador(string ganador, int puntajeMaximo)
+        {
+            this.Invoke((MethodInvoker)delegate {
+                // Nos desuscribimos para no dejar basura en memoria
+                SocketManager.OnGanadorAnunciado -= RecibirGanador;
+
+                // ¡AHORA SÍ! Abrimos la pantalla de resultados pasándole el nombre de oro
+                NavegarA(new Form4(respCorr, 2, ganador));
+                this.Hide();
+            });
         }
         //esta doble la funcion???
         private void AbrirSiguienteForm(Preguntas p, Respuesta r)
@@ -287,21 +306,21 @@ namespace ProyectoKahootXD
                     /* Texto siguiente = new Texto(p, r, contadorpreg, respCorr);
                      siguiente.Location = this.Location;
                      siguiente.Show();*/
-                    NavegarA(new Texto(p, r, contadorpreg, respCorr));
+                    NavegarA(new Texto(p, r, contadorpreg, respCorr,bandera));
                     break;
 
                 case "Imagen":
                     /*  Form1 sig1 = new Form1(p, r, contadorpreg, respCorr);
                       sig1.Location = this.Location;
                       sig1.Show();*/
-                    NavegarA(new Form1(p, r, contadorpreg, respCorr));
+                    NavegarA(new Form1(p, r, contadorpreg, respCorr,bandera));
                     break;
 
                 case "Audio":
                     /* Form3 sig3 = new Form3(p, r, contadorpreg, respCorr);
                      sig3.Location = this.Location;
                      sig3.Show();*/
-                    NavegarA(new Form3(p, r, contadorpreg, respCorr));
+                    NavegarA(new Form3(p, r, contadorpreg, respCorr,bandera));
                     break;
             }
         }
